@@ -9,7 +9,7 @@ function App() {
           <Link to="#" className="text-xl font-semibold">
             <strong>WEB2091 App</strong>
           </Link>
-
+    
           <div className="hidden md:flex items-center space-x-8">
             <Link to="#" className="hover:text-gray-200">
               Trang chủ
