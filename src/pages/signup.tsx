@@ -2,8 +2,8 @@ import { Button, Input } from 'antd';
 export const Signup = () => {
     return (
         <div className='w-[30%] bg-gray-500 h-auto mx-auto my-[30px]' >
-            <h1 className='text-white font-bold text-3xl items-center flex justify-center p-2'>Đăng Kí</h1>
-            <div className='w-full h-[200px] p-5 flex flex-col justify-between'>
+            <div className='w-full h-[300px] p-5 flex flex-col justify-between'>
+                <h1 className='text-white font-bold text-3xl items-center flex justify-center p-2'>Đăng Kí</h1>
                 <Input className='' placeholder="User name" />
                 <Input className='' placeholder="Email" />
                 <Input className='' placeholder="Pass" />
