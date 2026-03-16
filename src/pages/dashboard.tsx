@@ -3,7 +3,8 @@ import { Link, Route, Routes , Navigate } from "react-router-dom";
 import { Signin } from "./signin";
 import { Signup } from "./signup";
 import { Userlist } from "./userlist";
-import { Add } from "./add";
+// import { Add } from "./add";
+import Addcategories from "./formAdd";
 const Dashboard = () => {
     return (
         <>
@@ -43,7 +44,7 @@ const Dashboard = () => {
                 <Route path="/signup" element={<Signup></Signup>}></Route>
                 <Route path="/signin" element={<Signin></Signin>}></Route>
                 <Route path="/userlist" element={<Userlist></Userlist>}></Route>
-                <Route path="/add" element={<Add></Add>}></Route>
+                <Route path="/add" element={<Addcategories></Addcategories>}></Route>
             </Routes>
             <Toaster />
         </>

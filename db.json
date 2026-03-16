@@ -1,4 +1,25 @@
 {
-  "products": [],
+  "stories": [
+    {
+      "title": "Naruto",
+      "author": "Masashi Kishimoto",
+      "image": "https://image.com/naruto.jpg",
+      "description": "Truyện ninja nổi tiếng"
+    }
+  ],
+  "categories": [
+    {
+      "title": "h",
+      "description ": "h",
+      "isActive": true,
+      "id": 1
+    },
+    {
+      "title": "b",
+      "description ": "b",
+      "isActive": false,
+      "id": 2
+    }
+  ],
   "users": []
 }
