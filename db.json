@@ -9,14 +9,14 @@
   ],
   "categories": [
     {
-      "title": "h",
-      "description ": "h",
+      "title": "Ahihi",
+      "description": "Ahaha",
       "isActive": true,
       "id": 1
     },
     {
-      "title": "b",
-      "description ": "b",
+      "title": "Auhu",
+      "description": "Ahehe",
       "isActive": false,
       "id": 2
     }
