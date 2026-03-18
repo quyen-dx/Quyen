@@ -41,7 +41,7 @@ const Dashboard = () => {
             {/* MAIN CONTENT */}
             
             <Routes>
-                <Route path="/" element={<Navigate to="/catelist"/>}></Route>
+                <Route path="/" element={<Navigate to="/categories"/>}></Route>
                 <Route path="/signup" element={<Signup></Signup>}></Route>
                 <Route path="/signin" element={<Signin></Signin>}></Route>
                 <Route path="/categories" element={<CateList></CateList>}></Route>

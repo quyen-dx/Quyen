@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
 import { instance } from "../model/axios"
 import toast from "react-hot-toast"
-import {Form, Input,Checkbox,Button} from "antd"
+import {Form, Input,Checkbox,Button,DatePicker } from "antd"
 import type {Categories} from "../types/categories"
 
 const Addcategories = () =>{
@@ -21,8 +21,12 @@ const Addcategories = () =>{
             toast.error("Them that bai")
         }
     })
-    const onFinish = (values: Categories)=>{
-        mutation.mutate(values)
+    const onFinish = (values: any)=>{
+        const newData = {
+            ...values,
+            date: values.date.format("DD-MM-YYYY")
+        }
+        mutation.mutate(newData)
     }
     
     return(
@@ -33,6 +37,9 @@ const Addcategories = () =>{
             </Form.Item>
             <Form.Item label="Description " name="description" rules={[{required: true, message: "description  khong de trong"}]}>
                 <Input placeholder="Description "></Input>
+            </Form.Item>
+            <Form.Item label="Date " name="date" rules={[{required: true, message: "date  khong de trong"}]}>
+                <DatePicker style={{width: "100%"}}></DatePicker>
             </Form.Item>
             <Form.Item name="isActive" valuePropName="checked">
                 <Checkbox>Còn</Checkbox>
