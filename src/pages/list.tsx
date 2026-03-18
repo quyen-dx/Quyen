@@ -32,8 +32,13 @@ const CateList = () => {
     if (isError) return <p>Tải thất bại...</p>
     const column = [
         {
-            title: "ID",
+            title: "Stt",
             render: (_: any, __: any, index: number) => index + 1,
+            align: "center"
+        },
+        {
+            title: "ID",
+            dataIndex: "id",
             align: "center"
         },
         {
