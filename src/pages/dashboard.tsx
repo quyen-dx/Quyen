@@ -19,7 +19,7 @@ const Dashboard = () => {
                         <Link to="#" className="hover:text-gray-200">
                             Trang chủ
                         </Link>
-                        <Link to="/catelist" className="hover:text-gray-200">
+                        <Link to="/categories" className="hover:text-gray-200">
                             Danh sách
                         </Link>
                         <Link to="/add" className="hover:text-gray-200">
@@ -44,7 +44,7 @@ const Dashboard = () => {
                 <Route path="/" element={<Navigate to="/catelist"/>}></Route>
                 <Route path="/signup" element={<Signup></Signup>}></Route>
                 <Route path="/signin" element={<Signin></Signin>}></Route>
-                <Route path="/catelist" element={<CateList></CateList>}></Route>
+                <Route path="/categories" element={<CateList></CateList>}></Route>
                 {/* <Route path="/userlist" element={<Userlist></Userlist>}></Route> */}
                 <Route path="/add" element={<Addcategories></Addcategories>}></Route>
             </Routes>

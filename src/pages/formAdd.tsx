@@ -1,10 +1,12 @@
 import { useMutation } from "@tanstack/react-query"
+import { useNavigate } from "react-router-dom"
 import { instance } from "../model/axios"
 import toast from "react-hot-toast"
 import {Form, Input,Checkbox,Button} from "antd"
 import type {Categories} from "../types/categories"
 
 const Addcategories = () =>{
+    const navigate = useNavigate()
     const mutation = useMutation({
         mutationFn: async(data: Categories)=>{
             await new Promise((r) => setTimeout(r,1000));
@@ -13,6 +15,7 @@ const Addcategories = () =>{
         },
         onSuccess: () =>{
             toast.success("Them thanh cong")
+            navigate("/categories")
         },
         onError: () =>{
             toast.error("Them that bai")
