@@ -30,7 +30,7 @@ const StoriesList = () => {
             toast.error("xoa that bai")
         }
     })
-    const updateCate = useMutation({
+    const updateStori = useMutation({
         mutationFn: async (update: Stories) => instance.put(`/stories/${update.id}`, update),
         onSuccess: () => {
             toast.success("Cập nhật thành công");
@@ -140,7 +140,7 @@ const StoriesList = () => {
                     setopen(false);
                     setitem(null);
                 }}
-                onOk={() => item && updateCate.mutate(item)}
+                onOk={() => item && updateStori.mutate(item)}
             >
                 {item && (
                     <Form layout="vertical">

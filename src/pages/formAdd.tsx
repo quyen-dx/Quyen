@@ -39,8 +39,8 @@ const AddStories = () => {
                 <Form.Item label="Title" name="title" rules={[{ required: true, message: "title khong de trong" }]}>
                     <Input placeholder="Title"></Input>
                 </Form.Item>
-                <Form.Item label="Auhtor" name="author" rules={[{ required: true, message: "author  khong de trong" }]}>
-                    <Input placeholder="Auhtor"></Input>
+                <Form.Item label="Author" name="author" rules={[{ required: true, message: "author  khong de trong" }]}>
+                    <Input placeholder="Author"></Input>
                 </Form.Item>
                 <Form.Item label="Description" name="description" rules={[{ required: true, message: "description  khong de trong" }]}>
                     <Input placeholder="Description"></Input>
