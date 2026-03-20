@@ -33,12 +33,12 @@ const StoriesList = () => {
     const updateStori = useMutation({
         mutationFn: async (update: Stories) => instance.put(`/stories/${update.id}`, update),
         onSuccess: () => {
-            toast.success("Cập nhật thành công");
-            querycilient.invalidateQueries({ queryKey: ["stories"] }); // reload lại table
-            setopen(false); // đóng modal
-            setitem(null); // reset item
+            toast.success("cap nhat thanh cong");
+            querycilient.invalidateQueries({ queryKey: ["stories"] }); 
+            setopen(false); 
+            setitem(null); 
         },
-        onError: () => toast.error("Cập nhật thất bại"),
+        onError: () => toast.error("cap nhat that bai"),
     });
     if (isLoading) return <p>Đang tải...</p>
     if (isError) return <p>Tải thất bại...</p>
