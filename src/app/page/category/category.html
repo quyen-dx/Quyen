@@ -1,0 +1,383 @@
+<style>
+    .badge-sale {
+        background: #F33;
+    }
+
+    .line-through-price {
+        text-decoration: line-through;
+        color: #999;
+    }
+
+    input[type=range] {
+        accent-color: black;
+    }
+
+    #mobileFilter {
+        transition: transform 0.3s ease;
+    }
+</style>
+
+<div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 py-3">
+    <p class="text-xs text-gray-400">Home &rsaquo; <span class="text-black">Casual</span></p>
+</div>
+
+
+<div class="fixed inset-0 bg-black/40 z-40" [class.hidden]="!isOpen" (click)="close()">
+</div>
+
+
+<div id="mobileFilter" class="fixed bottom-0 left-0 w-full h-[90%] bg-white z-50
+  translate-y-full transition-transform duration-300
+  rounded-tl-[20px] rounded-tr-[20px] overflow-y-auto md:hidden" [class.translate-y-full]="!isOpen">
+    <div class="p-5">
+        <div class="flex items-center justify-between mb-4">
+            <span class="font-bold text-base">Filters</span>
+            <button (click)="close()" class="text-2xl leading-none text-gray-400">&times;</button>
+        </div>
+        <div class="border-t border-gray-100 py-4">
+            <ul class="flex flex-col gap-3">
+                <li class="flex items-center justify-between text-sm text-gray-600">T-shirts <i
+                        class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                <li class="flex items-center justify-between text-sm text-gray-600">Shorts <i
+                        class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                <li class="flex items-center justify-between text-sm text-gray-600">Shirts <i
+                        class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                <li class="flex items-center justify-between text-sm text-gray-600">Hoodie <i
+                        class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                <li class="flex items-center justify-between text-sm text-gray-600">Jeans <i
+                        class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+            </ul>
+        </div>
+        <div class="border-t border-gray-100 py-4">
+            <div class="flex items-center justify-between mb-3"><span class="font-bold text-sm">Price</span><i
+                    class="fa-solid fa-chevron-up text-xs text-gray-400"></i></div>
+            <input type="range" min="50" max="200" value="150" class="w-full mb-2" />
+            <div class="flex justify-between text-xs text-gray-500"><span>$50</span><span>$200</span></div>
+        </div>
+        <div class="border-t border-gray-100 py-4">
+            <div class="flex items-center justify-between mb-3"><span class="font-bold text-sm">Colors</span><i
+                    class="fa-solid fa-chevron-up text-xs text-gray-400"></i></div>
+            <div class="flex flex-wrap gap-2">
+                <button class="w-7 h-7 rounded-full bg-green-500"></button><button
+                    class="w-7 h-7 rounded-full bg-red-500"></button>
+                <button class="w-7 h-7 rounded-full bg-yellow-400"></button><button
+                    class="w-7 h-7 rounded-full bg-orange-400"></button>
+                <button class="w-7 h-7 rounded-full bg-cyan-400"></button><button
+                    class="w-7 h-7 rounded-full bg-blue-600 ring-2 ring-offset-1 ring-black"></button>
+                <button class="w-7 h-7 rounded-full bg-purple-500"></button><button
+                    class="w-7 h-7 rounded-full bg-pink-400"></button>
+                <button class="w-7 h-7 rounded-full bg-white border border-gray-200"></button><button
+                    class="w-7 h-7 rounded-full bg-black"></button>
+            </div>
+        </div>
+        <div class="border-t border-gray-100 py-4">
+            <div class="flex items-center justify-between mb-3"><span class="font-bold text-sm">Size</span><i
+                    class="fa-solid fa-chevron-up text-xs text-gray-400"></i></div>
+            <div class="flex flex-wrap gap-2">
+                <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">XX-Small</button>
+                <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">X-Small</button>
+                <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">Small</button>
+                <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">Medium</button>
+                <button class="px-3 py-1.5 rounded-full text-xs bg-black text-white">Large</button>
+                <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">X-Large</button>
+                <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">XX-Large</button>
+                <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">3X-Large</button>
+                <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">4X-Large</button>
+            </div>
+        </div>
+        <div class="border-t border-gray-100 py-4">
+            <div class="flex items-center justify-between mb-3"><span class="font-bold text-sm">Dress Style</span><i
+                    class="fa-solid fa-chevron-up text-xs text-gray-400"></i></div>
+            <ul class="flex flex-col gap-3">
+                <li class="flex items-center justify-between text-sm text-gray-600">Casual <i
+                        class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                <li class="flex items-center justify-between text-sm text-gray-600">Formal <i
+                        class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                <li class="flex items-center justify-between text-sm text-gray-600">Party <i
+                        class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                <li class="flex items-center justify-between text-sm text-gray-600">Gym <i
+                        class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+            </ul>
+        </div>
+        <button class="w-full bg-black text-white py-3 rounded-full text-sm font-semibold mt-2">Apply Filter</button>
+    </div>
+</div>
+
+
+<div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 pb-16 flex gap-6">
+    <aside class="hidden md:block w-64 shrink-0">
+        <div class="border border-gray-200 rounded-2xl p-5">
+            <div class="flex items-center justify-between mb-4">
+                <span class="font-bold text-base">Filters</span>
+                <i class="fa-solid fa-sliders text-gray-400"></i>
+            </div>
+            <div class="border-t border-gray-100 py-4">
+                <ul class="flex flex-col gap-3">
+                    <li class="flex items-center justify-between text-sm text-gray-600 cursor-pointer hover:text-black">
+                        T-shirts <i class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                    <li class="flex items-center justify-between text-sm text-gray-600 cursor-pointer hover:text-black">
+                        Shorts <i class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                    <li class="flex items-center justify-between text-sm text-gray-600 cursor-pointer hover:text-black">
+                        Shirts <i class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                    <li class="flex items-center justify-between text-sm text-gray-600 cursor-pointer hover:text-black">
+                        Hoodie <i class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                    <li class="flex items-center justify-between text-sm text-gray-600 cursor-pointer hover:text-black">
+                        Jeans <i class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                </ul>
+            </div>
+            <div class="border-t border-gray-100 py-4">
+                <div class="flex items-center justify-between mb-3"><span class="font-bold text-sm">Price</span><i
+                        class="fa-solid fa-chevron-up text-xs text-gray-400"></i></div>
+                <input type="range" min="50" max="200" value="150" class="w-full mb-2" />
+                <div class="flex justify-between text-xs text-gray-500"><span>$50</span><span>$200</span></div>
+            </div>
+            <div class="border-t border-gray-100 py-4">
+                <div class="flex items-center justify-between mb-3"><span class="font-bold text-sm">Colors</span><i
+                        class="fa-solid fa-chevron-up text-xs text-gray-400"></i></div>
+                <div class="flex flex-wrap gap-2">
+                    <button class="w-7 h-7 rounded-full bg-green-500"></button><button
+                        class="w-7 h-7 rounded-full bg-red-500"></button>
+                    <button class="w-7 h-7 rounded-full bg-yellow-400"></button><button
+                        class="w-7 h-7 rounded-full bg-orange-400"></button>
+                    <button class="w-7 h-7 rounded-full bg-cyan-400"></button><button
+                        class="w-7 h-7 rounded-full bg-blue-600 ring-2 ring-offset-1 ring-black"></button>
+                    <button class="w-7 h-7 rounded-full bg-purple-500"></button><button
+                        class="w-7 h-7 rounded-full bg-pink-400"></button>
+                    <button class="w-7 h-7 rounded-full bg-white border border-gray-200"></button><button
+                        class="w-7 h-7 rounded-full bg-black"></button>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 py-4">
+                <div class="flex items-center justify-between mb-3"><span class="font-bold text-sm">Size</span><i
+                        class="fa-solid fa-chevron-up text-xs text-gray-400"></i></div>
+                <div class="flex flex-wrap gap-2">
+                    <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">XX-Small</button>
+                    <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">X-Small</button>
+                    <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">Small</button>
+                    <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">Medium</button>
+                    <button class="px-3 py-1.5 rounded-full text-xs bg-black text-white">Large</button>
+                    <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">X-Large</button>
+                    <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">XX-Large</button>
+                    <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">3X-Large</button>
+                    <button class="px-3 py-1.5 rounded-full text-xs bg-gray-100">4X-Large</button>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 py-4">
+                <div class="flex items-center justify-between mb-3"><span class="font-bold text-sm">Dress Style</span><i
+                        class="fa-solid fa-chevron-up text-xs text-gray-400"></i></div>
+                <ul class="flex flex-col gap-3">
+                    <li class="flex items-center justify-between text-sm text-gray-600 cursor-pointer hover:text-black">
+                        Casual <i class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                    <li class="flex items-center justify-between text-sm text-gray-600 cursor-pointer hover:text-black">
+                        Formal <i class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                    <li class="flex items-center justify-between text-sm text-gray-600 cursor-pointer hover:text-black">
+                        Party <i class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                    <li class="flex items-center justify-between text-sm text-gray-600 cursor-pointer hover:text-black">
+                        Gym <i class="fa-solid fa-chevron-right text-xs text-gray-300"></i></li>
+                </ul>
+            </div>
+            <button
+                class="w-full bg-black text-white py-3 rounded-full text-sm font-semibold mt-2 hover:bg-gray-800 transition">Apply
+                Filter</button>
+        </div>
+    </aside>
+
+
+    <div class="flex-1 min-w-0">
+
+        <div class="flex md:hidden items-center justify-between mb-3">
+            <button (click)="open()"
+                class="flex items-center gap-2 border border-gray-200 rounded-full px-4 py-2 text-sm">
+                <i class="fa-solid fa-sliders text-xs"></i> Filters
+            </button>
+            <select
+                class="font-semibold text-black text-xs outline-none border border-gray-200 rounded-full px-3 py-2 bg-white">
+                <option>Most Popular</option>
+                <option>Newest</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+            </select>
+        </div>
+
+        <div class="hidden md:flex items-center justify-between mb-5">
+            <h1 class="text-2xl font-[900] uppercase tracking-tight">Casual</h1>
+            <div class="flex items-center gap-2 text-xs text-gray-500">
+                <span>Showing 1-10 of 100 Products</span>
+                <span>Sort by:</span>
+                <select class="font-semibold text-black text-xs outline-none border-none bg-transparent cursor-pointer">
+                    <option>Most Popular</option>
+                    <option>Newest</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="md:hidden mb-3">
+            <h1 class="text-xl font-[900] uppercase tracking-tight">Casual</h1>
+            <p class="text-xs text-gray-400">Showing 1-10 of 100 Products</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 mb-8">
+            <div class="group cursor-pointer">
+                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
+                    <img src="assets/imgcategory/Frame 8.png"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-xs md:text-base mb-1">Gradient Graphic T-shirt</h3>
+                <div class="flex items-center gap-1 mb-1">
+                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div><span
+                        class="text-[10px] text-gray-400">3.5/5</span>
+                </div>
+                <span class="font-bold text-sm md:text-base">$145</span>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
+                    <img src="assets/imgcategory/Frame 9.png"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-xs md:text-base mb-1">Polo with Tipping Details</h3>
+                <div class="flex items-center gap-1 mb-1">
+                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><span
+                        class="text-[10px] text-gray-400">4.5/5</span>
+                </div>
+                <span class="font-bold text-sm md:text-base">$180</span>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
+                    <img src="assets/imgcategory/Frame 7.png"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-xs md:text-base mb-1">Black Striped T-shirt</h3>
+                <div class="flex items-center gap-1 mb-1">
+                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span
+                        class="text-[10px] text-gray-400">5.0/5</span>
+                </div>
+                <div class="flex items-center gap-1 flex-wrap"><span
+                        class="font-bold text-sm md:text-base">$120</span><span
+                        class="line-through-price text-xs">$160</span><span
+                        class="badge-sale text-white text-[9px] font-bold px-1 py-0.5 rounded">-30%</span></div>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
+                    <img src="assets/imgcategory/Frame 2.png"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-xs md:text-base mb-1">Skinny Fit Jeans</h3>
+                <div class="flex items-center gap-1 mb-1">
+                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div><span
+                        class="text-[10px] text-gray-400">3.5/5</span>
+                </div>
+                <div class="flex items-center gap-1 flex-wrap"><span
+                        class="font-bold text-sm md:text-base">$240</span><span
+                        class="line-through-price text-xs">$260</span><span
+                        class="badge-sale text-white text-[9px] font-bold px-1 py-0.5 rounded">-20%</span></div>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
+                    <img src="assets/imgcategory/Frame 3.png"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-xs md:text-base mb-1">Checkered Shirt</h3>
+                <div class="flex items-center gap-1 mb-1">
+                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><span
+                        class="text-[10px] text-gray-400">4.5/5</span>
+                </div>
+                <span class="font-bold text-sm md:text-base">$180</span>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
+                    <img src="assets/imgcategory/Frame 4.png"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-xs md:text-base mb-1">Sleeve Striped T-shirt</h3>
+                <div class="flex items-center gap-1 mb-1">
+                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><span
+                        class="text-[10px] text-gray-400">4.5/5</span>
+                </div>
+                <div class="flex items-center gap-1 flex-wrap"><span
+                        class="font-bold text-sm md:text-base">$130</span><span
+                        class="line-through-price text-xs">$160</span><span
+                        class="badge-sale text-white text-[9px] font-bold px-1 py-0.5 rounded">-10%</span></div>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
+                    <img src="assets/imgcategory/Frame 1.png"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-xs md:text-base mb-1">Vertical Striped Shirt</h3>
+                <div class="flex items-center gap-1 mb-1">
+                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span
+                        class="text-[10px] text-gray-400">5.0/5</span>
+                </div>
+                <div class="flex items-center gap-1 flex-wrap"><span
+                        class="font-bold text-sm md:text-base">$212</span><span
+                        class="line-through-price text-xs">$232</span><span
+                        class="badge-sale text-white text-[9px] font-bold px-1 py-0.5 rounded">-20%</span></div>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
+                    <img src="assets/imgcategory/Frame 5.png"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-xs md:text-base mb-1">Courage Graphic T-shirt</h3>
+                <div class="flex items-center gap-1 mb-1">
+                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div><span
+                        class="text-[10px] text-gray-400">4.0/5</span>
+                </div>
+                <span class="font-bold text-sm md:text-base">$145</span>
+            </div>
+            <div class="group cursor-pointer hidden md:block">
+                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
+                    <img src="assets/imgcategory/Frame 6.png"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-xs md:text-base mb-1">Loose Fit Bermuda Shorts</h3>
+                <div class="flex items-center gap-1 mb-1">
+                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></div><span
+                        class="text-[10px] text-gray-400">3.0/5</span>
+                </div>
+                <span class="font-bold text-sm md:text-base">$80</span>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
+            <button
+                class="flex items-center gap-1 px-3 py-2 border border-gray-200 rounded-lg text-xs md:text-sm hover:bg-gray-50 transition">
+                <i class="fa-solid fa-arrow-left text-xs"></i> Previous
+            </button>
+            <div class="flex items-center gap-1">
+                <button class="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-black text-white text-xs font-bold">1</button>
+                <button class="w-7 h-7 md:w-8 md:h-8 rounded-lg text-xs text-gray-500 hover:bg-gray-100">2</button>
+                <button class="w-7 h-7 md:w-8 md:h-8 rounded-lg text-xs text-gray-500 hover:bg-gray-100">3</button>
+                <span class="px-1 text-gray-400 text-xs">...</span>
+                <button class="w-7 h-7 md:w-8 md:h-8 rounded-lg text-xs text-gray-500 hover:bg-gray-100">8</button>
+                <button class="w-7 h-7 md:w-8 md:h-8 rounded-lg text-xs text-gray-500 hover:bg-gray-100">9</button>
+                <button class="w-7 h-7 md:w-8 md:h-8 rounded-lg text-xs text-gray-500 hover:bg-gray-100">10</button>
+            </div>
+            <button
+                class="flex items-center gap-1 px-3 py-2 border border-gray-200 rounded-lg text-xs md:text-sm hover:bg-gray-50 transition">
+                Next <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+        </div>
+
+    </div>
+</div>

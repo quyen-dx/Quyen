@@ -1,0 +1,313 @@
+<main class="main w-screen">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" />
+    <style>
+        body {
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        .badge-sale {
+            background: #F33;
+        }
+
+        .line-through-price {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .thumb.active {
+            border: 2px solid black;
+        }
+
+        .color-btn.active {
+            outline: 2px solid black;
+            outline-offset: 2px;
+        }
+
+        .size-btn.active {
+            background: black;
+            color: white;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid black;
+            font-weight: 700;
+        }
+    </style>
+
+    
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 py-4">
+        <p class="text-xs text-gray-400">Home &rsaquo; Shop &rsaquo; Men &rsaquo; <span
+                class="text-black">T-shirts</span></p>
+    </div>
+
+  
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 pb-14">
+        <div class="flex flex-col md:flex-row gap-8 md:gap-12">  
+            <div class="flex flex-col-reverse md:flex-row gap-3 md:w-1/2">
+                <div class="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-visible">
+                    <img onclick="setMain(this)" src="assets/imgdetail/image 2.png"
+                        class="thumb active w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl cursor-pointer border border-gray-200 shrink-0" />
+                    <img onclick="setMain(this)" src="assets/imgdetail/image 5.png"
+                        class="thumb w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl cursor-pointer border border-gray-200 shrink-0" />
+                    <img onclick="setMain(this)" src="assets/imgdetail/image 6.png"
+                        class="thumb w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl cursor-pointer border border-gray-200 shrink-0" />
+                </div>
+                <div class="flex-1 bg-[#F0EEED] rounded-2xl overflow-hidden aspect-square">
+                    <img id="mainImg" src="assets/imgdetail/image 1.png" class="w-full h-full object-cover" />
+                </div>
+            </div>
+
+            
+            <div class="md:w-1/2">
+                <h1 class="text-2xl md:text-[32px] font-[900] uppercase tracking-tight mb-2">One Life Graphic T-Shirt
+                </h1>
+
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="flex text-yellow-400 text-sm"><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                    <span class="text-sm text-gray-500">4.5/5</span>
+                </div>
+
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-2xl font-bold">$260</span>
+                    <span class="line-through-price text-lg">$300</span>
+                    <span class="badge-sale text-white text-xs font-bold px-2 py-0.5 rounded-full">-40%</span>
+                </div>
+
+                <p class="text-gray-500 text-sm leading-relaxed mb-5 border-b border-gray-200 pb-5">
+                    This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric,
+                    it offers superior comfort and style.
+                </p>
+
+               
+                <div class="mb-5">
+                    <p class="text-sm font-semibold mb-3">Select Colors</p>
+                    <div class="flex gap-3">
+                        <button onclick="selectColor(this)"
+                            class="color-btn active w-8 h-8 rounded-full bg-[#4B5320] border border-gray-200"></button>
+                        <button onclick="selectColor(this)"
+                            class="color-btn w-8 h-8 rounded-full bg-[#314F7A] border border-gray-200"></button>
+                        <button onclick="selectColor(this)"
+                            class="color-btn w-8 h-8 rounded-full bg-[#1C3B2A] border border-gray-200"></button>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-200 pt-5 mb-5">
+                    <p class="text-sm font-semibold mb-3">Choose Size</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <button onclick="selectSize(this)"
+                            class="size-btn px-5 py-2 rounded-full text-sm bg-gray-100 hover:bg-gray-200 transition">Small</button>
+                        <button onclick="selectSize(this)"
+                            class="size-btn px-5 py-2 rounded-full text-sm bg-gray-100 hover:bg-gray-200 transition">Medium</button>
+                        <button onclick="selectSize(this)"
+                            class="size-btn active px-5 py-2 rounded-full text-sm bg-gray-100 hover:bg-gray-200 transition">Large</button>
+                        <button onclick="selectSize(this)"
+                            class="size-btn px-5 py-2 rounded-full text-sm bg-gray-100 hover:bg-gray-200 transition">X-Large</button>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-200 pt-5 flex items-center gap-4">
+                    <div class="flex items-center gap-4 bg-gray-100 rounded-full px-5 py-3">
+                        <button onclick="changeQty(-1)" class="text-xl font-bold leading-none">−</button>
+                        <span id="qty" class="text-sm font-semibold w-4 text-center">1</span>
+                        <button onclick="changeQty(1)" class="text-xl font-bold leading-none">+</button>
+                    </div>
+                    <button
+                        class="flex-1 bg-black text-white py-3 rounded-full font-semibold text-sm hover:bg-gray-800 transition">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 border-t border-gray-200">
+        <div class="flex  justify-evenly">
+            <button onclick="switchTab('details')" id="tab-details"
+                class="tab-btn py-4 text-sm text-gray-500 border-b-2 border-transparent">Product Details</button>
+            <button onclick="switchTab('reviews')" id="tab-reviews"
+                class="tab-btn py-4 text-sm text-gray-500 border-b-2 border-black font-bold text-black">Rating &
+                Reviews</button>
+            <button onclick="switchTab('faqs')" id="tab-faqs"
+                class="tab-btn py-4 text-sm text-gray-500 border-b-2 border-transparent">FAQs</button>
+        </div>
+    </div>
+
+    
+    <div id="panel-reviews" class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 py-8">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="font-bold text-lg">All Reviews <span class="text-gray-400 font-normal text-sm">(451)</span></h3>
+            <div class="flex items-center gap-3">
+                <button class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center"><i
+                        class="fa-solid fa-sliders text-sm"></i></button>
+                <select class="border border-gray-200 rounded-full px-4 py-2 text-sm outline-none">
+                    <option>Latest</option>
+                    <option>Oldest</option>
+                </select>
+                <button class="bg-black text-white px-5 py-2 rounded-full text-sm font-semibold">Write a Review</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+            <div class="border border-gray-200 rounded-2xl p-5">
+                <div class="flex text-yellow-400 text-sm mb-2"><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i></div>
+                <div class="flex items-center gap-2 mb-2"><span class="font-bold text-sm">Samantha D.</span><i
+                        class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-3">"I absolutely love this t-shirt! The design is
+                    unique and the fabric feels so comfortable. As a fellow designer I appreciate the attention to
+                    detail. It's become my favorite go-to shirt!"</p>
+                <p class="text-gray-400 text-xs">Posted on August 14, 2023</p>
+            </div>
+
+            <div class="border border-gray-200 rounded-2xl p-5">
+                <div class="flex text-yellow-400 text-sm mb-2"><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i></div>
+                <div class="flex items-center gap-2 mb-2"><span class="font-bold text-sm">Alex M.</span><i
+                        class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-3">"The t-shirt exceeded my expectations! The colors
+                    are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about
+                    aesthetics, and this t-shirt definitely gets a thumbs up from me!"</p>
+                <p class="text-gray-400 text-xs">Posted on August 15, 2023</p>
+            </div>
+
+            <div class="border border-gray-200 rounded-2xl p-5">
+                <div class="flex text-yellow-400 text-sm mb-2"><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-regular fa-star"></i></div>
+                <div class="flex items-center gap-2 mb-2"><span class="font-bold text-sm">Ethan R.</span><i
+                        class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-3">"This t-shirt is a must-have for anyone who
+                    appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect.
+                    I can see the designer's touch in every aspect of the shirt!"</p>
+                <p class="text-gray-400 text-xs">Posted on August 16, 2023</p>
+            </div>
+
+            <div class="border border-gray-200 rounded-2xl p-5">
+                <div class="flex text-yellow-400 text-sm mb-2"><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i></div>
+                <div class="flex items-center gap-2 mb-2"><span class="font-bold text-sm">Olivia P.</span><i
+                        class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-3">"As a UI/UX enthusiast, I value simplicity and
+                    functionality. This t-shirt not only represents these principles but also looks great to wear. It's
+                    evident that the designer poured their creativity into making it truly stand out."</p>
+                <p class="text-gray-400 text-xs">Posted on August 17, 2023</p>
+            </div>
+
+            <div class="border border-gray-200 rounded-2xl p-5">
+                <div class="flex text-yellow-400 text-sm mb-2"><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i></div>
+                <div class="flex items-center gap-2 mb-2"><span class="font-bold text-sm">Liam K.</span><i
+                        class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-3">"This t-shirt is a fusion of comfort and
+                    creativity. The fabric is soft and the design speaks volumes about the designer's skill. It'll be
+                    wearing a piece of design philosophy that you can carry in your passion for both design and
+                    fashion!"</p>
+                <p class="text-gray-400 text-xs">Posted on August 18, 2023</p>
+            </div>
+
+            <div class="border border-gray-200 rounded-2xl p-5">
+                <div class="flex text-yellow-400 text-sm mb-2"><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-regular fa-star"></i></div>
+                <div class="flex items-center gap-2 mb-2"><span class="font-bold text-sm">Ava H.</span><i
+                        class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-3">"I'm not just wearing a t-shirt; I'm wearing a
+                    piece of design philosophy. The intricate details and thoughtful layout of the design make this
+                    shirt a conversation starter!"</p>
+                <p class="text-gray-400 text-xs">Posted on August 19, 2023</p>
+            </div>
+
+        </div>
+
+        <div class="flex justify-center mt-8">
+            <button
+                class="border border-gray-300 px-12 py-3 rounded-full text-sm font-medium hover:bg-gray-50 transition">Load
+                More Reviews</button>
+        </div>
+    </div>
+
+    <div id="panel-details" class="hidden max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 py-8">
+        <p class="text-gray-600 text-sm leading-relaxed">Product details content here.</p>
+    </div>
+
+    <div id="panel-faqs" class="hidden max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 py-8">
+        <p class="text-gray-600 text-sm leading-relaxed">FAQs content here.</p>
+    </div>
+
+  
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 py-12 border-t border-gray-200">
+        <h2 class="text-2xl md:text-[32px] font-[900] uppercase text-center tracking-tight mb-8">You Might Also Like
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+
+            <div class="group cursor-pointer">
+                <div class="bg-[#F0EEED] rounded-2xl overflow-hidden aspect-square mb-3">
+                    <img src="assets/imgdetail/Frame 32.png" alt="Polo with Contrast Trims"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-sm md:text-base mb-1">Polo with Contrast Trims</h3>
+                <div class="flex text-yellow-400 text-xs mb-1"><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-regular fa-star"></i></div>
+                <div class="flex items-center gap-2">
+                    <span class="font-bold">$212</span>
+                    <span class="line-through-price text-sm">$242</span>
+                    <span class="badge-sale text-white text-[10px] font-bold px-1.5 py-0.5 rounded">-20%</span>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer">
+                <div class="bg-[#F0EEED] rounded-2xl overflow-hidden aspect-square mb-3">
+                    <img src="assets/imgdetail/Frame 33.png" alt="Gradient Graphic T-shirt"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-sm md:text-base mb-1">Gradient Graphic T-shirt</h3>
+                <div class="flex text-yellow-400 text-xs mb-1"><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-regular fa-star"></i></div>
+                <span class="font-bold">$145</span>
+            </div>
+
+            <div class="group cursor-pointer hidden md:block">
+                <div class="bg-[#F0EEED] rounded-2xl overflow-hidden aspect-square mb-3">
+                    <img src="assets/imgdetail/Frame 34.png" alt="Polo with Tipping Details"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-sm md:text-base mb-1">Polo with Tipping Details</h3>
+                <div class="flex text-yellow-400 text-xs mb-1"><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-regular fa-star"></i></div>
+                <span class="font-bold">$180</span>
+            </div>
+
+            <div class="group cursor-pointer hidden md:block">
+                <div class="bg-[#F0EEED] rounded-2xl overflow-hidden aspect-square mb-3">
+                    <img src="assets/imgdetail/Frame 38.png " alt="Black Striped T-shirt"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                </div>
+                <h3 class="font-bold text-sm md:text-base mb-1">Black Striped T-shirt</h3>
+                <div class="flex text-yellow-400 text-xs mb-1"><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-regular fa-star"></i></div>
+                <div class="flex items-center gap-2">
+                    <span class="font-bold">$120</span>
+                    <span class="line-through-price text-sm">$160</span>
+                    <span class="badge-sale text-white text-[10px] font-bold px-1.5 py-0.5 rounded">-30%</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
