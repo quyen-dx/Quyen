@@ -1,34 +1,14 @@
-<style>
-    .badge-sale {
-        background: #F33;
-    }
-
-    .line-through-price {
-        text-decoration: line-through;
-        color: #999;
-    }
-
-    input[type=range] {
-        accent-color: black;
-    }
-
-    #mobileFilter {
-        transition: transform 0.3s ease;
-    }
-</style>
-
 <div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 py-3">
     <p class="text-xs text-gray-400">Home &rsaquo; <span class="text-black">Casual</span></p>
 </div>
 
-
-<div class="fixed inset-0 bg-black/40 z-40" [class.hidden]="!isOpen" (click)="close()">
+<div class="fixed inset-0 bg-black/40 z-[999] md:hidden transition-opacity duration-300" [class.opacity-0]="!isOpen"
+    [class.pointer-events-none]="!isOpen" (click)="close()">
 </div>
 
-
-<div id="mobileFilter" class="fixed bottom-0 left-0 w-full h-[90%] bg-white z-50
-  translate-y-full transition-transform duration-300
-  rounded-tl-[20px] rounded-tr-[20px] overflow-y-auto md:hidden" [class.translate-y-full]="!isOpen">
+<div class="fixed bottom-0 left-0 w-full bg-white z-[1000] md:hidden
+  rounded-tl-[20px] rounded-tr-[20px] overflow-y-auto
+  transition-transform duration-300 max-h-[90vh]" [class.translate-y-full]="!isOpen" [class.translate-y-0]="isOpen">
     <div class="p-5">
         <div class="flex items-center justify-between mb-4">
             <span class="font-bold text-base">Filters</span>
@@ -58,16 +38,16 @@
             <div class="flex items-center justify-between mb-3"><span class="font-bold text-sm">Colors</span><i
                     class="fa-solid fa-chevron-up text-xs text-gray-400"></i></div>
             <div class="flex flex-wrap gap-2">
-                <button class="w-7 h-7 rounded-full bg-green-500"></button><button
-                    class="w-7 h-7 rounded-full bg-red-500"></button>
-                <button class="w-7 h-7 rounded-full bg-yellow-400"></button><button
-                    class="w-7 h-7 rounded-full bg-orange-400"></button>
-                <button class="w-7 h-7 rounded-full bg-cyan-400"></button><button
-                    class="w-7 h-7 rounded-full bg-blue-600 ring-2 ring-offset-1 ring-black"></button>
-                <button class="w-7 h-7 rounded-full bg-purple-500"></button><button
-                    class="w-7 h-7 rounded-full bg-pink-400"></button>
-                <button class="w-7 h-7 rounded-full bg-white border border-gray-200"></button><button
-                    class="w-7 h-7 rounded-full bg-black"></button>
+                <button class="w-7 h-7 rounded-full bg-green-500"></button>
+                <button class="w-7 h-7 rounded-full bg-red-500"></button>
+                <button class="w-7 h-7 rounded-full bg-yellow-400"></button>
+                <button class="w-7 h-7 rounded-full bg-orange-400"></button>
+                <button class="w-7 h-7 rounded-full bg-cyan-400"></button>
+                <button class="w-7 h-7 rounded-full bg-blue-600 ring-2 ring-offset-1 ring-black"></button>
+                <button class="w-7 h-7 rounded-full bg-purple-500"></button>
+                <button class="w-7 h-7 rounded-full bg-pink-400"></button>
+                <button class="w-7 h-7 rounded-full bg-white border border-gray-200"></button>
+                <button class="w-7 h-7 rounded-full bg-black"></button>
             </div>
         </div>
         <div class="border-t border-gray-100 py-4">
@@ -103,7 +83,6 @@
     </div>
 </div>
 
-
 <div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 pb-16 flex gap-6">
     <aside class="hidden md:block w-64 shrink-0">
         <div class="border border-gray-200 rounded-2xl p-5">
@@ -135,16 +114,16 @@
                 <div class="flex items-center justify-between mb-3"><span class="font-bold text-sm">Colors</span><i
                         class="fa-solid fa-chevron-up text-xs text-gray-400"></i></div>
                 <div class="flex flex-wrap gap-2">
-                    <button class="w-7 h-7 rounded-full bg-green-500"></button><button
-                        class="w-7 h-7 rounded-full bg-red-500"></button>
-                    <button class="w-7 h-7 rounded-full bg-yellow-400"></button><button
-                        class="w-7 h-7 rounded-full bg-orange-400"></button>
-                    <button class="w-7 h-7 rounded-full bg-cyan-400"></button><button
-                        class="w-7 h-7 rounded-full bg-blue-600 ring-2 ring-offset-1 ring-black"></button>
-                    <button class="w-7 h-7 rounded-full bg-purple-500"></button><button
-                        class="w-7 h-7 rounded-full bg-pink-400"></button>
-                    <button class="w-7 h-7 rounded-full bg-white border border-gray-200"></button><button
-                        class="w-7 h-7 rounded-full bg-black"></button>
+                    <button class="w-7 h-7 rounded-full bg-green-500"></button>
+                    <button class="w-7 h-7 rounded-full bg-red-500"></button>
+                    <button class="w-7 h-7 rounded-full bg-yellow-400"></button>
+                    <button class="w-7 h-7 rounded-full bg-orange-400"></button>
+                    <button class="w-7 h-7 rounded-full bg-cyan-400"></button>
+                    <button class="w-7 h-7 rounded-full bg-blue-600 ring-2 ring-offset-1 ring-black"></button>
+                    <button class="w-7 h-7 rounded-full bg-purple-500"></button>
+                    <button class="w-7 h-7 rounded-full bg-pink-400"></button>
+                    <button class="w-7 h-7 rounded-full bg-white border border-gray-200"></button>
+                    <button class="w-7 h-7 rounded-full bg-black"></button>
                 </div>
             </div>
             <div class="border-t border-gray-100 py-4">
@@ -182,9 +161,7 @@
         </div>
     </aside>
 
-
     <div class="flex-1 min-w-0">
-
         <div class="flex md:hidden items-center justify-between mb-3">
             <button (click)="open()"
                 class="flex items-center gap-2 border border-gray-200 rounded-full px-4 py-2 text-sm">
@@ -378,6 +355,5 @@
                 Next <i class="fa-solid fa-arrow-right text-xs"></i>
             </button>
         </div>
-
     </div>
 </div>
