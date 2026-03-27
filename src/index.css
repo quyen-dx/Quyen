@@ -4,10 +4,7 @@
     border-collapse: collapse;
 }
 
-.ant-table-thead>tr>th {
-    background: #f50101;
-    border-collapse: collapse;
-}
+
 
 .ant-table-tbody>tr>td {
     padding: 12px;

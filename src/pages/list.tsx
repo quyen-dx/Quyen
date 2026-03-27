@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Button, Checkbox, Form, Input, Modal, Popconfirm, Table } from "antd";
+import { Button, Checkbox, DatePicker, Form, Input, Modal, Popconfirm, Table } from "antd";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { instance } from "../model/axios";
@@ -12,7 +12,9 @@ const getStories = async () => {
 const StoriesList = () => {
     const [item, setitem] = useState<Stories | null>(null);
     const [open, setopen] = useState(false);
+    const [openadd, setopenadd] = useState(false);
     const [search, setSearch] = useState("")
+    const [form] = Form.useForm()
     const { data, isLoading, isError } = useQuery<Stories[]>({
         queryKey: ["stories"],
         queryFn: getStories
@@ -34,12 +36,38 @@ const StoriesList = () => {
         mutationFn: async (update: Stories) => instance.put(`/stories/${update.id}`, update),
         onSuccess: () => {
             toast.success("cap nhat thanh cong");
-            querycilient.invalidateQueries({ queryKey: ["stories"] }); 
-            setopen(false); 
-            setitem(null); 
+            querycilient.invalidateQueries({ queryKey: ["stories"] });
+            setopen(false);
+            setitem(null);
         },
         onError: () => toast.error("cap nhat that bai"),
     });
+    const mutationadd = useMutation({
+        mutationFn: async (data: Stories) => {
+            await new Promise((r) => setTimeout(r, 1000));
+            const res = await instance.post("/stories", data)
+            return res
+        },
+        onSuccess: () => {
+            toast.success("Them thanh cong")
+            querycilient.invalidateQueries({ queryKey: ["stories"] });
+            setopenadd(false)
+            form.resetFields()
+        },
+        onError: () => {
+            toast.error("Them that bai")
+        }
+    })
+    const onFinish = (values: any) => {
+        const newData = {
+            ...values,
+            isActive: values.isActive ?? true,
+            date: values.date.format("DD-MM-YYYY"),
+            image: values.image ?? ""
+
+        }
+        mutationadd.mutate(newData)
+    }
     if (isLoading) return <p>Đang tải...</p>
     if (isError) return <p>Tải thất bại...</p>
     const column = [
@@ -126,6 +154,11 @@ const StoriesList = () => {
     return (
         <div>
             <Input placeholder="tìm" onChange={(e) => setSearch(e.target.value)} style={{ width: "50%", border: "1px solid black", margin: "30px", padding: "20px", }} />
+            <Button
+                type="primary"
+                onClick={() => { setopenadd(true) }}>
+                Thêm
+            </Button>
             <Table columns={column}
                 dataSource={filteredData}
                 loading={isLoading}
@@ -164,14 +197,44 @@ const StoriesList = () => {
                                 onChange={(e) => setitem({ ...item, description: e.target.value })}
                             />
                         </Form.Item>
-
+                        <Form.Item label="Image">
+                            <Input
+                                value={item.image}
+                                onChange={(e) => setitem({ ...item, image: e.target.value })}
+                            />
+                        </Form.Item>
                         <Form.Item label="Status">
                             <Checkbox checked={item.isActive} onChange={(e) => setitem({ ...item, isActive: e.target.checked })}>Còn</Checkbox>
                         </Form.Item>
                     </Form>
                 )}
             </Modal>
+
+            <Modal title="Thêm mới" open={openadd} onCancel={() => { setopenadd(false),form.resetFields }} onOk={form.submit}>
+                <Form form={form} layout="vertical" onFinish={onFinish} style={{ maxWidth: "500px" }} initialValues={{ isActive: false }}>
+                    <Form.Item label="Title" name="title" rules={[{ required: true, message: "title khong de trong" }]}>
+                        <Input placeholder="Title"></Input>
+                    </Form.Item>
+                    <Form.Item label="Author" name="author" rules={[{ required: true, message: "author  khong de trong" }]}>
+                        <Input placeholder="Author"></Input>
+                    </Form.Item>
+                    <Form.Item label="Description" name="description" rules={[{ required: true, message: "description  khong de trong" }]}>
+                        <Input placeholder="Description"></Input>
+                    </Form.Item>
+                    <Form.Item label="Date" name="date" rules={[{ required: true, message: "date  khong de trong" }]}>
+                        <DatePicker style={{ width: "100%" }}></DatePicker>
+                    </Form.Item>
+                    {/* <Form.Item name="isActive" valuePropName="checked">
+                    <Checkbox>Còn</Checkbox>
+                </Form.Item> */}
+                    <Form.Item label="Image URL" name="image" rules={[{ required: true, message: "image khong de trong" }]}>
+                        <Input placeholder="nhap url anh" />
+                    </Form.Item>
+                    <Button type="default" htmlType="submit" loading={mutationadd.isPending}>{mutationadd.isPending ? "Đang thêm..." : "Thêm"}</Button>
+                </Form>
+            </Modal>
         </div>
     )
+
 }
 export default StoriesList

@@ -3,7 +3,6 @@ import { Link, Navigate, Route, Routes } from "react-router-dom";
 // import { Signin } from "./signin";
 // import { Signup } from "./signup";
 // import CateList from "./list";
-import AddStories from "./formAdd";
 import StoriesList from "./list";
 const Dashboard = () => {
     return (
@@ -42,7 +41,6 @@ const Dashboard = () => {
             <Routes>
                 <Route path="/" element={<Navigate to="/stories" />}></Route>
                 <Route path="/stories" element={<StoriesList></StoriesList>}></Route>
-                <Route path="/add" element={<AddStories></AddStories>}></Route>
                 {/* <Route path="/signup" element={<Signup></Signup>}></Route>
                 <Route path="/signin" element={<Signin></Signin>}></Route> */}
             </Routes>
