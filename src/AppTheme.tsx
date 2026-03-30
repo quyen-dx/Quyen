@@ -1,7 +1,7 @@
-import { ConfigProvider,theme as themeAntd} from "antd";
+import { ConfigProvider, theme as themeAntd } from "antd";
 import { useContext } from "react";
-import { ThemeContext } from "./context/ThemeContext";
 import App from "./App";
+import { ThemeContext } from "./context/ThemeContext";
 
 export default function AppTheme() {
   const context = useContext(ThemeContext);
@@ -11,11 +11,14 @@ export default function AppTheme() {
 
   return (
     <ConfigProvider
-        theme={{
-            algorithm:theme === 'dark' ? themeAntd.darkAlgorithm : themeAntd.defaultAlgorithm
-        }}
+      theme={{
+        algorithm: theme === 'dark' ? themeAntd.darkAlgorithm : themeAntd.defaultAlgorithm
+      }}
     >
-        <App/>
+      <div className={theme === "dark" ? "dark" : "light"}>
+        <App />
+      </div>
+
     </ConfigProvider>
   );
 }

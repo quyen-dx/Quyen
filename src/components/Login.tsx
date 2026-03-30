@@ -9,8 +9,8 @@ const Login = () => {
     const { user,setUser } = context
 const handleLogin = () => {
         setUser({
-            name: "hihi",
-            avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjjIjqpK9jYOuyLlgE4qLJYDG7E2fAWDtVKA&s"
+            name: "Ahoho",
+            avatar: "https://img3.stockfresh.com/files/k/kraska/m/97/808337_stock-photo-user-icon.jpg"
         });
     };
 
@@ -21,11 +21,11 @@ const handleLogin = () => {
         <div className="flex gap-5">
             {user ? (
                 <div className="flex gap-2">
-                    <Avatar src={user.avatar} />
+                    <Avatar src={user.avatar}/>
                     <span>{user.name}</span>
                 </div>
             ) : (
-                <span>chua dang nhap</span>
+                <span><span style={{fontWeight: "bold"}}>❗</span> Login, Pls</span>
             )}
 
             {user ? (

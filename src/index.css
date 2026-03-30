@@ -12,3 +12,14 @@
     border: 2px solid black;
     border-collapse: collapse;
 }
+.dark {
+  background: #1a1a1a;
+  color: white;
+  min-height: 100vh;
+}
+
+.light {
+  background: white;
+  color: black;
+  min-height: 100vh;
+}

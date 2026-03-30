@@ -3,9 +3,14 @@ import { Link, Navigate, Route, Routes } from "react-router-dom";
 // import { Signin } from "./signin";
 // import { Signup } from "./signup";
 // import CateList from "./list";
+import { useContext } from "react";
 import Login from "../components/Login";
+import { ThemeContext } from "../context/ThemeContext";
 import StoriesList from "./list";
 const Dashboard = () => {
+    const context = useContext(ThemeContext)
+    if (!context) return null
+    const { theme, actionTheme } = context
     return (
         <>
             <nav className="bg-blue-600 text-white shadow">
@@ -35,6 +40,9 @@ const Dashboard = () => {
                         </Link>
                     </div> */}
                     <Login />
+                    <button className={theme === "dark" ? "bg-pink-600" : "bg-green-600"} style={{width: "50px", height: "30px", border: "1px solid black"}} onClick={actionTheme}>
+                        {theme === "light" ? "🌚" : "☀️"}
+                    </button>
                 </div>
             </nav>
 
