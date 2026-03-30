@@ -10,9 +10,8 @@ function App() {
     <div>
       <div className={theme === "dark" ? "bg-black text-white" : "bg-white text-black"}>
         <Dashboard />
-        <h1>{theme}</h1>
-        <button className={theme === "dark" ? "bg-pink-600 py[30px] px-[50px]" : "bg-green-600 py[30px] px-[50px]"} onClick={actionTheme}>
-          {theme === "light" ? "☀️" : "🌚"} Đổi màu
+        <button className={theme === "dark" ? "bg-pink-600 py-[20px] px-[50px]" : "bg-green-600 py-[20px] px-[50px]"} onClick={actionTheme}>
+          {theme === "light" ? "chuyển sang tối🌚" : " chuyển sang sáng☀️"} 
         </button>
       </div>
     </div>

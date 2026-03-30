@@ -4,7 +4,6 @@ import { Link, Navigate, Route, Routes } from "react-router-dom";
 // import { Signup } from "./signup";
 // import CateList from "./list";
 import Header from "../components/Header";
-import Login from "../components/Login";
 import StoriesList from "./list";
 const Dashboard = () => {
     return (
@@ -27,16 +26,15 @@ const Dashboard = () => {
                         </Link>
                     </div>
 
-                    <div className="hidden md:flex items-center space-x-6">
+                    {/* <div className="hidden md:flex items-center space-x-6">
                         <Link to="/signin" className="hover:text-gray-200">
                             Đăng nhập
                         </Link>
                         <Link to="/signup" className="hover:text-gray-200">
                             Đăng ký
                         </Link>
-                    </div>
+                    </div> */}
                     <Header />
-                    <Login />
                 </div>
             </nav>
 
