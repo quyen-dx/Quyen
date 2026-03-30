@@ -2,7 +2,7 @@ import { Avatar, Button } from "antd";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
-const Header = () => {
+const Login = () => {
     const context = useContext(UserContext)
     if (!context) return null
 
@@ -41,4 +41,4 @@ const handleLogin = () => {
         </div>
     )
 }
-export default Header;
+export default Login;

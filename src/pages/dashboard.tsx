@@ -3,7 +3,7 @@ import { Link, Navigate, Route, Routes } from "react-router-dom";
 // import { Signin } from "./signin";
 // import { Signup } from "./signup";
 // import CateList from "./list";
-import Header from "../components/Header";
+import Login from "../components/Login";
 import StoriesList from "./list";
 const Dashboard = () => {
     return (
@@ -34,7 +34,7 @@ const Dashboard = () => {
                             Đăng ký
                         </Link>
                     </div> */}
-                    <Header />
+                    <Login />
                 </div>
             </nav>
 
