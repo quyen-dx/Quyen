@@ -36,7 +36,7 @@ const Signin = () => {
             <Form.Item name="email" label="Email">
                 <Input></Input>
             </Form.Item>
-            <Form.Item name="pass" label="Pass">
+            <Form.Item name="password" label="Pass">
                 <Input.Password></Input.Password>
             </Form.Item>
             <Button htmlType="submit" type="primary" loading={isPending}>Dang nhap</Button>

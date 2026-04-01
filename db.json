@@ -94,7 +94,13 @@
       "id": 1,
       "name": "abc",
       "email": "abc@gmail.com",
-      "pass": "12345"
+      "password": "12345"
+    },
+    {
+      "email": "q@gmail.com",
+      "password": "$2a$10$1vTeOMKTGTUFtLGDasF7w.eKSHdb3PqEIFKyMhdNGlujaHdXWy68m",
+      "name": "q",
+      "id": 2
     }
   ]
 }

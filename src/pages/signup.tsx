@@ -31,8 +31,8 @@ const SignUp = () => {
             <Form.Item label="Email" name="email" rules={[{ type: "email", message: "email ddungs dinh dang" }]}>
                 <Input placeholder="email"></Input>
             </Form.Item>
-            <Form.Item label="Pass" name="pass">
-                <Input.Password placeholder="pass"></Input.Password>
+            <Form.Item label="Pass" name="password">
+                <Input.Password placeholder="password"></Input.Password>
             </Form.Item>
             <Button type="primary" htmlType="submit" loading={isPending}>Dawng ki</Button>
         </Form>
