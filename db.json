@@ -94,13 +94,50 @@
       "id": 1,
       "name": "abc",
       "email": "abc@gmail.com",
+      "avatar": "https://picsum.photos/400/300?random=8",
       "password": "12345"
     },
     {
       "email": "q@gmail.com",
       "password": "$2a$10$1vTeOMKTGTUFtLGDasF7w.eKSHdb3PqEIFKyMhdNGlujaHdXWy68m",
       "name": "q",
+      "avatar": "https://photo.znews.vn/w660/Uploaded/mdf_eioxrd/2021_07_06/2.jpg",
       "id": 2
+    },
+    {
+      "email": "a@gmail.com",
+      "password": "$2a$10$c.i1cEFUfByfiU5Vg7LDEuHGt9kpprv4zCAOmPdmq4A6eaGNVArrS",
+      "name": "a",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/250px-User_icon_2.svg.png",
+      "id": 3
+    },
+    {
+      "email": "b@gmail.com",
+      "password": "$2a$10$MREhvIPbVvRYiR01BXP9NeQ0TKphc6pWcK3TfdGCt6LYjeVwvWVSG",
+      "name": "b",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/250px-User_icon_2.svg.png",
+      "id": 4
+    },
+    {
+      "email": "c@gmail.com",
+      "password": "$2a$10$G7AhRquv/FGbXTWCSlzjFOMKPvGzt7F6VwxhgtszXvE4gjLfVm3ti",
+      "name": "c",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/250px-User_icon_2.svg.png",
+      "id": 5
+    },
+    {
+      "email": "d@gmail.com",
+      "password": "$2a$10$J/F/LyCVcH0r7CKUtJtau.9XsNATLzf0vfyKdj7eS7mZ5zEaIf60.",
+      "name": "d",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/250px-User_icon_2.svg.png",
+      "id": 6
+    },
+    {
+      "email": "e@gmail.com",
+      "password": "$2a$10$YUN8CxI.BCawTPLbKIwIv.oEOvS1EPsdz1x643zWHM9LwhIXfBw32",
+      "name": "e",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnSA1zygA3rubv-VK0DrVcQ02Po79kJhXo_A&s",
+      "id": 7
     }
   ]
 }

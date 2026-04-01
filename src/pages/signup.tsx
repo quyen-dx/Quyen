@@ -2,25 +2,32 @@ import { useMutation } from "@tanstack/react-query"
 import { Button, Form, Input } from "antd"
 import toast from "react-hot-toast"
 import { instance } from "../model/axios"
+import { useAuthStore } from "../stores/useAuthStore"
+import { useNavigate } from "react-router-dom"
 
 
 const SignUp = () => {
+    const {setUser} = useAuthStore() 
+    const navigate = useNavigate()
     const { mutate, isPending } = useMutation({
         mutationFn: async (values: any) => {
-            const res = await instance.post(`/users`, values)
+            const res = await instance.post(`/register`, values)
             return res
         },
-        onSuccess: (data) => {
-            console.log("SUCCESS:", data)
+        onSuccess: (res) => {
+            setUser({
+                name: res.data.user.name ,
+                avatar: res.data.user.avatar || ""
+            })
+            localStorage.setItem("token", res.data.accessToken)
             toast.success("đăng kí thanh cong")
+            navigate("/stories")
         },
         onError: (error: any) => {
-            console.error("Lỗi đăng ký:", error?.response?.data || error.message)
             toast.error(error?.response?.data?.message || "dang ki khong than cong")
         }
     })
     const onFinish = (data: any) => {
-        console.log("Data gửi lên:", data)
         mutate(data)
     }
     return (
@@ -30,6 +37,9 @@ const SignUp = () => {
             </Form.Item>
             <Form.Item label="Email" name="email" rules={[{ type: "email", message: "email ddungs dinh dang" }]}>
                 <Input placeholder="email"></Input>
+            </Form.Item>
+            <Form.Item label="Avatar" name="avatar">
+                <Input placeholder="avatar"></Input>
             </Form.Item>
             <Form.Item label="Pass" name="password">
                 <Input.Password placeholder="password"></Input.Password>

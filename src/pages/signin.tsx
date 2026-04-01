@@ -3,25 +3,27 @@ import { Button, Form, Input } from "antd";
 import toast from "react-hot-toast";
 import { instance } from "../model/axios";
 import { useAuthStore } from "../stores/useAuthStore";
+import { useNavigate } from "react-router-dom";
 
 
 const Signin = () => {
     const { setUser } = useAuthStore();
-
+    const navigate = useNavigate()
     const { mutate, isPending } = useMutation({
         mutationFn: async (values: any) => {
-            return await instance.get(`/users?email=${values.email}&pass=${values.pass}`)
+            return await instance.post(`/login`,{
+                email: values.email,
+                password: values.password
+            })
         },
         onSuccess: ({ data }) => {
-            if (data.length > 0) {
-                setUser({
-                    name: data[0].name,
-                    avatar: data[0].avatar || ""
-                });
-                toast.success("đăng nhập thành công")
-            } else {
-                toast.error("sai email hoặc mật khẩu")
-            }
+            setUser({
+                name: data.user.name,
+                avatar: data.user.avatar || ""
+            })
+            localStorage.setItem("token", data.accessToken)
+            toast.success("dang nhap thanh cong")
+            navigate("/stories")
         },
         onError: () => {
             toast.error("sai email hoac mat khau")

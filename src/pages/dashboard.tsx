@@ -29,8 +29,8 @@ const Dashboard = () => {
                     <div className="hidden md:flex items-center space-x-6">
                         {user ? (
                             <>
-                                <img src={user.avatar}></img>
-                                <span>{user.name}</span>
+                                <img src={user.avatar} className="w-10 h-10 rounded-full"></img>
+                                <span className="text-white">{user.name}</span>
                                 <Button onClick={() => setUser(null)}>Logout</Button>
                             </>
                         ) : (
