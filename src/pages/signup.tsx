@@ -1,14 +1,15 @@
 import { useMutation } from "@tanstack/react-query"
 import { Button, Form, Input } from "antd"
 import toast from "react-hot-toast"
+import { useNavigate } from "react-router-dom"
 import { instance } from "../model/axios"
 import { useAuthStore } from "../stores/useAuthStore"
-import { useNavigate } from "react-router-dom"
 
 
 const SignUp = () => {
-    const {setUser} = useAuthStore() 
+    const { setUser } = useAuthStore()
     const navigate = useNavigate()
+    const [form] = Form.useForm()
     const { mutate, isPending } = useMutation({
         mutationFn: async (values: any) => {
             const res = await instance.post(`/register`, values)
@@ -16,12 +17,13 @@ const SignUp = () => {
         },
         onSuccess: (res) => {
             setUser({
-                name: res.data.user.name ,
+                name: res.data.user.name,
                 avatar: res.data.user.avatar || ""
             })
             localStorage.setItem("token", res.data.accessToken)
             toast.success("đăng kí thanh cong")
             navigate("/stories")
+            form.resetFields()
         },
         onError: (error: any) => {
             toast.error(error?.response?.data?.message || "dang ki khong than cong")
@@ -31,7 +33,7 @@ const SignUp = () => {
         mutate(data)
     }
     return (
-        <Form onFinish={onFinish} layout="vertical">
+        <Form onFinish={onFinish} layout="vertical" form={form}>
             <Form.Item label="Name" name="name">
                 <Input placeholder="Name"></Input>
             </Form.Item>
