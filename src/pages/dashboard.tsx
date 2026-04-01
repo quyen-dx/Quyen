@@ -1,16 +1,12 @@
 import { Toaster } from "react-hot-toast";
 import { Link, Navigate, Route, Routes } from "react-router-dom";
-// import { Signin } from "./signin";
-// import { Signup } from "./signup";
-// import CateList from "./list";
-import { useContext } from "react";
-import Login from "../components/Login";
-import { ThemeContext } from "../context/ThemeContext";
+import { useAuthStore } from "../stores/useAuthStore";
 import StoriesList from "./list";
+import Signin from "./signin";
+import { Button } from "antd";
+import SignUp from "./signup";
 const Dashboard = () => {
-    const context = useContext(ThemeContext)
-    if (!context) return null
-    const { theme, actionTheme } = context
+    const { user, setUser } = useAuthStore()
     return (
         <>
             <nav className="bg-blue-600 text-white shadow">
@@ -30,19 +26,24 @@ const Dashboard = () => {
                             Thêm mới
                         </Link>
                     </div>
-
-                    {/* <div className="hidden md:flex items-center space-x-6">
-                        <Link to="/signin" className="hover:text-gray-200">
-                            Đăng nhập
-                        </Link>
-                        <Link to="/signup" className="hover:text-gray-200">
-                            Đăng ký
-                        </Link>
-                    </div> */}
-                    <Login />
-                    <button className={theme === "dark" ? "bg-pink-600" : "bg-green-600"} style={{width: "50px", height: "30px", border: "1px solid black"}} onClick={actionTheme}>
-                        {theme === "light" ? "🌚" : "☀️"}
-                    </button>
+                    <div className="hidden md:flex items-center space-x-6">
+                        {user ? (
+                            <>
+                                <img src={user.avatar}></img>
+                                <span>{user.name}</span>
+                                <Button onClick={() => setUser(null)}>Logout</Button>
+                            </>
+                        ) : (
+                            <>
+                                <Link to="/signin" className="hover:text-gray-200">
+                                    Đăng nhập
+                                </Link>
+                                <Link to="/signUp" className="hover:text-gray-200">
+                                    Đăng ký
+                                </Link>
+                            </>
+                        )}
+                    </div>
                 </div>
             </nav>
 
@@ -51,6 +52,8 @@ const Dashboard = () => {
             <Routes>
                 <Route path="/" element={<Navigate to="/stories" />}></Route>
                 <Route path="/stories" element={<StoriesList></StoriesList>}></Route>
+                <Route path="/signin" element={<Signin></Signin>}></Route>
+                <Route path="/signup" element={<SignUp></SignUp>}></Route>
                 {/* <Route path="/signup" element={<Signup></Signup>}></Route>
                 <Route path="/signin" element={<Signin></Signin>}></Route> */}
             </Routes>

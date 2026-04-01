@@ -18,7 +18,6 @@ export default function AppTheme() {
       <div className={theme === "dark" ? "dark" : "light"}>
         <App />
       </div>
-
     </ConfigProvider>
   );
 }
