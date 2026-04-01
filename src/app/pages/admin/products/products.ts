@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { ProductService } from '../services/product';
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { IProduct } from '../../../interface/product';
@@ -11,32 +11,36 @@ import { IProduct } from '../../../interface/product';
   styleUrl: './products.css',
 })
 export class Products {
-  http = inject(HttpClient)
+  productsService = inject(ProductService)
   message = inject(NzMessageService)
-  route = inject(ActivatedRoute)
   products: IProduct[] = []
   changdt = inject(ChangeDetectorRef)
   async ngOnInit() {
-    // const keyword = this.route.snapshot.queryParams['keyword']
-    // console.log(keyword);
-    const res = await fetch(`http://localhost:3000/products`)
-    this.products = await res.json()
-    this.changdt.markForCheck()
-  }
-  delete(id: number, name: string) {
-    if (!confirm(`Xac nhan xoa  "${name}"`)) {
-      return
-    }
-    this.http.delete(`http://localhost:3000/products/${id}`).subscribe({
-      next: () => {
-        this.products = this.products.filter(item => item.id !== id)
-        this.message.success("Xoá thành công");
-        this.changdt.markForCheck()
+    this.productsService.getAll().subscribe({
+      next: (data: IProduct[]) =>{
+          this.products = data
+          this.changdt.markForCheck()
+          this.message.success("lay san pham thanh cong")
       },
-      error: () => {
-        this.message.error("Xoá thất bại");
+      error: (err) =>{
+        console.log(err)
+        this.message.error("lay san pham that bai")
       }
     })
-
   }
+  delete(id: number | string, name: string){
+    if(!confirm(`Xoa san pham   ${name}`)) return
+    this.productsService.delete(id).subscribe({
+      next: () =>{
+        this.message.success("xoa thanh cong")
+        this.products = this.products.filter(item => item.id !== id)
+        this.changdt.markForCheck()
+      },
+      error: (err)=>{
+        console.log(err)
+        this.message.error("xoa that bai")
+      }
+    })
+  }
+
 }
