@@ -24,7 +24,7 @@ export class Productadd {
   productform = new FormGroup({
     name: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
-    price: new FormControl('', [Validators.required, Validators.min(100)]),
+    price: new FormControl<null | number>(null, [Validators.required, Validators.min(100)]),
     image: new FormControl('', [Validators.required])
   })
   onclick() {
