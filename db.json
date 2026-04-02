@@ -22,11 +22,18 @@
       "price": 10000
     },
     {
-      "id": 4,
-      "name": "Sản phẩm B",
-      "category": "1",
+      "name": "Sản phẩm Bb",
+      "category": "13",
+      "price": 200009,
       "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png",
-      "price": 20000
+      "id": 4
+    },
+    {
+      "name": "p",
+      "category": "666666666666666",
+      "price": 6666666666,
+      "image": "pppppppppppppppp",
+      "id": 5
     }
   ],
   "users": [

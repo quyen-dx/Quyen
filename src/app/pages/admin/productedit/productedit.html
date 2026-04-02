@@ -1,34 +1,36 @@
-<form nz-form nzLayout="vertical" #f="ngForm" (ngSubmit)="onSubmit(f)">
+<form nz-form [formGroup]="productform" (ngSubmit)="onclick()">
+
     <nz-form-item>
-        <nz-form-label nzRequired>ten san pham</nz-form-label>
-        <nz-form-control nzErrorTip="vui long nhap ten san pham">
-            <input  nz-input [(ngModel)]="product.name" name="name" placeholder="name" required />
+        <nz-form-control nzErrorTip="ten khong duoc de trong">
+            <nz-form-label nzRequired>Name</nz-form-label>
+                <nz-icon nzInputPrefix nzType="name" />
+                <input type="text" nz-input formControlName="name" placeholder="name" />
         </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-        <nz-form-label nzRequired>Danh mục</nz-form-label>
-        <nz-form-control nzErrorTip="vui long nhap ten danh muc">
-            <input nz-input [(ngModel)]="product.category" name="category" required />
+        <nz-form-control nzErrorTip="image not null">
+            <nz-form-label nzRequired>image</nz-form-label>
+                <nz-icon nzInputPrefix nzType="image" />
+                <input type="text" nz-input formControlName="image" placeholder="image" />
         </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-        <nz-form-label nzRequired>Giá</nz-form-label>
-        <nz-form-control nzErrorTip="vui long nhap ten gia">
-            <input nz-input type="number" [(ngModel)]="product.price" name="price" required min="100" />
+        <nz-form-control nzErrorTip="price not null">
+            <nz-form-label nzRequired>price</nz-form-label>
+                <nz-icon nzInputPrefix nzType="price" />
+                <input type="number" nz-input formControlName="price" placeholder="price" />
         </nz-form-control>
     </nz-form-item>
-
+    
     <nz-form-item>
-        <nz-form-label nzRequired>Ảnh (URL)</nz-form-label>
-        <nz-form-control nzErrorTip="vui long nhap ten link anh">
-            <input nz-input [(ngModel)]="product.image" name="image" required />
+        <nz-form-control nzErrorTip="category not null">
+            <nz-form-label nzRequired>category</nz-form-label>
+                <nz-icon nzInputPrefix nzType="category" />
+                <input type="text" nz-input formControlName="category" placeholder="category" />
         </nz-form-control>
     </nz-form-item>
 
-    <div>
-        <button nz-button class="login-form-button login-form-margin" nzType="primary" type="submit">Cap nhat</button>
-        <button nz-button class="login-form-button login-form-margin"  type="button" routerLink="/admin/products">huy</button>
-    </div>
+    <button  nz-button class="login-form-button login-form-margin" nzType="primary" >Cập nhật</button>
 </form>

@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -6,7 +7,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { ProductService } from '../services/product';
+// import { ProductService } from '../services/product';
 
 @Component({
   selector: 'app-productadd',
@@ -16,10 +17,10 @@ import { ProductService } from '../services/product';
 })
 
 export class Productadd {
-  productsService = inject(ProductService)
+  // productsService = inject(ProductService)
   router = inject(Router)
   message = inject(NzMessageService)
-
+  http = inject(HttpClient)
   productform = new FormGroup({
     name: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
@@ -32,16 +33,9 @@ export class Productadd {
       this.message.error("thong tin can nhap day du")
       return
     }
-    const formValue = this.productform.value;
-    const data = {
-      id: 0,
-      name: formValue.name ?? '',
-      category: formValue.category ?? '',
-      price: Number(formValue.price) ?? '',
-      image: formValue.image ?? ''
-    };
+    const data = this.productform.value;
 
-    this.productsService.add(data).subscribe({
+    this.http.post("  http://localhost:3000/products", data).subscribe({
       next: () => {
         this.productform.reset();
         this.router.navigate(['/admin/products']);
