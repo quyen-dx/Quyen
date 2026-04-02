@@ -52,7 +52,7 @@ export class Productedit {
     const data = this.productform.value;
 
     this.http.put(`http://localhost:3000/products/${this.id}`, data).subscribe({
-      next: (data) => {
+      next: () => {
         this.productform.reset();
         this.router.navigate(['/admin/products']);
         this.message.success("sua thanh cong")
