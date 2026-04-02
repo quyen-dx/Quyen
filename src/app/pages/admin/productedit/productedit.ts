@@ -27,7 +27,7 @@ export class Productedit {
     this.changdt.markForCheck()
   }
   onSubmit (f: NgForm){
-    if(!f.valid){
+    if(!f.valid){ 
       this.message.error("nhap day du thong tin") 
       return
     }

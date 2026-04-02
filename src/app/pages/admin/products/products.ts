@@ -4,9 +4,10 @@ import { RouterLink } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { IProduct } from '../../../interface/product';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 @Component({
   selector: 'app-products',
-  imports: [RouterLink, NzTableModule],
+  imports: [RouterLink, NzTableModule,NzPopconfirmModule],
   templateUrl: './products.html',
   styleUrl: './products.css',
 })
@@ -29,7 +30,7 @@ export class Products {
     })
   }
   delete(id: number, name: string){
-    if(!confirm(`Xoa san pham   ${name}`)) return
+    // if(!confirm(`Xoa san pham   ${name}`)) return
     this.productsService.delete(id).subscribe({
       next: () =>{
         this.message.success("xoa thanh cong")

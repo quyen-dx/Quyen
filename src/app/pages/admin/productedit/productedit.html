@@ -8,21 +8,21 @@
 
     <nz-form-item>
         <nz-form-label nzRequired>Danh mục</nz-form-label>
-        <nz-form-control nzErrorTip="Vui lòng nhập danh mục">
+        <nz-form-control nzErrorTip="vui long nhap ten danh muc">
             <input nz-input [(ngModel)]="product.category" name="category" required />
         </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
         <nz-form-label nzRequired>Giá</nz-form-label>
-        <nz-form-control nzErrorTip="Vui lòng nhập giá">
+        <nz-form-control nzErrorTip="vui long nhap ten gia">
             <input nz-input type="number" [(ngModel)]="product.price" name="price" required min="100" />
         </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
         <nz-form-label nzRequired>Ảnh (URL)</nz-form-label>
-        <nz-form-control nzErrorTip="Vui lòng nhập link ảnh">
+        <nz-form-control nzErrorTip="vui long nhap ten link anh">
             <input nz-input [(ngModel)]="product.image" name="image" required />
         </nz-form-control>
     </nz-form-item>

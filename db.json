@@ -29,18 +29,11 @@
       "price": 20000
     },
     {
-      "name": "pppppppp",
-      "category": "999",
-      "price": 111,
-      "image": "https://cdn-media.sforum.vn/storage/app/media/anh-dep-82.jpg",
-      "id": 5
-    },
-    {
-      "name": "99",
-      "category": "9999999999999999",
-      "price": 999,
-      "image": "https://photo.znews.vn/w660/Uploaded/mdf_eioxrd/2021_07_06/2.jpg",
-      "id": 6
+      "id": 5,
+      "name": "lll",
+      "category": "lkl",
+      "price": 8987987,
+      "image": "lllllllllllllllll"
     }
   ],
   "users": [
