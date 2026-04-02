@@ -1,3 +1,34 @@
-<h1>{{product.name}}</h1>
-<span>{{product.price}}</span>
-<img [src]="product.image"/>
+<form nz-form nzLayout="vertical" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <nz-form-item>
+        <nz-form-label nzRequired>ten san pham</nz-form-label>
+        <nz-form-control nzErrorTip="vui long nhap ten san pham">
+            <input  nz-input [(ngModel)]="product.name" name="name" placeholder="name" required />
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>Danh mục</nz-form-label>
+        <nz-form-control nzErrorTip="Vui lòng nhập danh mục">
+            <input nz-input [(ngModel)]="product.category" name="category" required />
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>Giá</nz-form-label>
+        <nz-form-control nzErrorTip="Vui lòng nhập giá">
+            <input nz-input type="number" [(ngModel)]="product.price" name="price" required min="100" />
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzRequired>Ảnh (URL)</nz-form-label>
+        <nz-form-control nzErrorTip="Vui lòng nhập link ảnh">
+            <input nz-input [(ngModel)]="product.image" name="image" required />
+        </nz-form-control>
+    </nz-form-item>
+
+    <div>
+        <button nz-button class="login-form-button login-form-margin" nzType="primary" type="submit">Cap nhat</button>
+        <button nz-button class="login-form-button login-form-margin"  type="button" routerLink="/admin/products">huy</button>
+    </div>
+</form>

@@ -6,7 +6,7 @@ import { en_US, provideNzI18n } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { IconDefinition } from '@ant-design/icons-angular';
-import { AccountBookFill, AlertFill, MenuFoldOutline, ProductOutline, TeamOutline, UserOutline } from '@ant-design/icons-angular/icons';
+import { MenuFoldOutline, ProductOutline, TeamOutline, UserOutline } from '@ant-design/icons-angular/icons';
 registerLocaleData(en);
 const icons: IconDefinition[] = [ProductOutline, UserOutline,TeamOutline,MenuFoldOutline];
 export const appConfig: ApplicationConfig = {

@@ -3,5 +3,5 @@ export interface IProduct {
   image: string;
   price: number;
   category: string
-  id: number | string;
+  id: number;
 }

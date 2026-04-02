@@ -6,7 +6,6 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { IProduct } from '../../../interface/product';
 import { ProductService } from '../services/product';
 
 @Component({
@@ -34,14 +33,16 @@ export class Productadd {
       return
     }
     const formValue = this.productform.value;
-    const data: Omit<IProduct , 'id'> = {
-      name: formValue.name || '',
-      category: formValue.category || '',
-      price: Number(formValue.price) || 0,
-      image: formValue.image || ''
+    const data = {
+      id: 0,
+      name: formValue.name ?? '',
+      category: formValue.category ?? '',
+      price: Number(formValue.price) ?? '',
+      image: formValue.image ?? ''
     };
+
     this.productsService.add(data).subscribe({
-      next: (res: IProduct) => {
+      next: () => {
         this.productform.reset();
         this.router.navigate(['/admin/products']);
         this.message.success("them thanh cong")

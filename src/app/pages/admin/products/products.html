@@ -20,10 +20,17 @@
             <td><img [src]="product.image" alt="" style="width: 100px;"></td>
             <td>{{product.category}}</td>
             <td>{{product.price}}</td>
-            <td>
-                <button class="bg-red-500 text-white   px-4 py-2 rounded-2xl hover:bg-red-400" style="color: #fff;" (click)="delete(product.id, product.name)">
+            <td class="flex gap-3">
+                <button class="bg-yellow-500 text-white   px-4 py-2 rounded-2xl hover:bg-yellow-400"><a
+                        style="color: #fff;" nz-button nzType="primary"
+                        [routerLink]="['/admin/products/edit', product.id]">
+                        Sửa
+                    </a></button>
+                <button class="bg-red-500 text-white   px-4 py-2 rounded-2xl hover:bg-red-400" style="color: #fff;"
+                    (click)="delete(product.id, product.name)">
                     xoa
                 </button>
+
             </td>
         </tr>
         }

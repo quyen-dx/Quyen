@@ -1,51 +1,60 @@
 {
   "products": [
     {
+      "id": 1,
       "name": "Mũ lưỡi trai update",
+      "category": "Mũ",
       "image": "https://hoyang.vn/wp-content/uploads/2021/03/set-quan-ao-dep.jpg",
-      "price": 129000,
-      "id": "1"
+      "price": 129000
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Áo khoác denim",
+      "category": "Áo",
       "image": "https://down-vn.img.susercontent.com/file/vn-11134208-7qukw-ljqjtknkxzia10",
       "price": 799000
     },
     {
+      "id": 3,
       "name": "Sản phẩm A",
       "category": "1",
       "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png",
-      "price": 10000,
-      "id": "3"
+      "price": 10000
     },
     {
+      "id": 4,
       "name": "Sản phẩm B",
       "category": "1",
       "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png",
-      "price": 20000,
-      "id": "4"
+      "price": 20000
     },
     {
-      "id": "b1ed",
-      "name": "1111111111111111111",
-      "category": "1111111111111111111",
-      "price": 1111111111111111200,
-      "image": "11111111111111111111111"
+      "name": "pppppppp",
+      "category": "999",
+      "price": 111,
+      "image": "https://cdn-media.sforum.vn/storage/app/media/anh-dep-82.jpg",
+      "id": 5
+    },
+    {
+      "name": "99",
+      "category": "9999999999999999",
+      "price": 999,
+      "image": "https://photo.znews.vn/w660/Uploaded/mdf_eioxrd/2021_07_06/2.jpg",
+      "id": 6
     }
   ],
   "users": [
     {
+      "id": 1,
       "email": "ngocnv@gmail.com",
       "password": "$2a$10$OEocdXboYnvt6EdLKxRH1.sqjWg/BzrLxB7HOuz.yCjAJuRDJeacW",
-      "role": "admin",
-      "id": "1"
+      "role": "admin"
     },
     {
+      "id": 2,
       "email": "angocit@gmail.com",
       "password": "$2a$10$RluXUIdUqSIn/CeGVs.pt.Qpq2L9Vkmd6fZ6.rzvmcmcgJTbSepPa",
-      "role": "user",
-      "id": "2"
+      "role": "user"
     }
   ]
 }

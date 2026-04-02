@@ -28,7 +28,7 @@ export class Products {
       }
     })
   }
-  delete(id: number | string, name: string){
+  delete(id: number, name: string){
     if(!confirm(`Xoa san pham   ${name}`)) return
     this.productsService.delete(id).subscribe({
       next: () =>{

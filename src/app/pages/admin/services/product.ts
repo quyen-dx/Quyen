@@ -9,16 +9,16 @@ export class ProductService {
   http = inject(HttpClient)
   api = 'http://localhost:3000/products'
   
-  getAll() {
+  getAll =() :Observable<IProduct[]>=> {
     return this.http.get<IProduct[]>(this.api)
   }
-  add(data:  Omit<IProduct,'id'>): Observable<IProduct>{
+  add(data: IProduct): Observable<IProduct>{
     return this.http.post<IProduct>(this.api,data)
   }
-  delete(id: number | string): Observable<void>{
+  delete(id: number): Observable<void>{
     return this.http.delete<void>(`${this.api}/${id}`)
   }
-  update(id: number | number, data: IProduct): Observable<IProduct>{
+  update(id: number, data: IProduct): Observable<IProduct>{
     return this.http.put<IProduct>(`${this.api}/${id}`,data)
   }
 }
