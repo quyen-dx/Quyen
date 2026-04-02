@@ -27,7 +27,7 @@
                         Sửa
                     </a></button>
                 <button class="bg-red-500 text-white   px-4 py-2 rounded-2xl hover:bg-red-400" style="color: #fff;"
-                    nz-popconfirm [nzPopconfirmTitle]="'xoa   ' + product.name  + ' ?'"
+                    nz-popconfirm [nzPopconfirmTitle]="'xoa'+ ' ' + product.name  + ' ' +'?'"
                     (nzOnConfirm)="delete(product.id, product.name)">
                     xoa
                 </button>
