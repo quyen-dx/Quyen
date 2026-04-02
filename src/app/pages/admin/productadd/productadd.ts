@@ -35,9 +35,8 @@ export class Productadd {
     }
     const data = this.productform.value;
 
-    this.http.post("  http://localhost:3000/products", data).subscribe({
+    this.http.post("http://localhost:3000/products", data).subscribe({
       next: () => {
-        this.productform.reset();
         this.router.navigate(['/admin/products']);
         this.message.success("them thanh cong")
       },
