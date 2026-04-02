@@ -33,7 +33,7 @@ export class Products {
     // if(!confirm(`Xoa san pham   ${name}`)) return
     this.productsService.delete(id).subscribe({
       next: () =>{
-        this.message.success("xoa thanh cong")
+        this.message.success(`xoa thanh cong ${name}`)
         this.products = this.products.filter(item => item.id !== id)
         this.changdt.markForCheck()
       },

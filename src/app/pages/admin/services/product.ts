@@ -18,7 +18,7 @@ export class ProductService {
   delete(id: number): Observable<void>{
     return this.http.delete<void>(`${this.api}/${id}`)
   }
-  update(id: number, data: IProduct): Observable<IProduct>{
+  edit(id: number, data: IProduct): Observable<IProduct>{
     return this.http.put<IProduct>(`${this.api}/${id}`,data)
   }
 }
