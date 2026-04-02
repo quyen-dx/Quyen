@@ -10,7 +10,7 @@ import { IProduct } from '../../../interface/product';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-productedit',
-  imports: [FormsModule, NzButtonModule, NzInputModule, NzFormModule, RouterLink, ReactiveFormsModule],
+  imports: [FormsModule, NzButtonModule, NzInputModule, NzFormModule, ReactiveFormsModule],
   templateUrl: './productedit.html',
   styleUrl: './productedit.css',
 })
