@@ -5,6 +5,7 @@ import StoriesList from "./list";
 import Signin from "./signin";
 import { Button } from "antd";
 import SignUp from "./signup";
+import List from "../hook/lisst";
 const Dashboard = () => {
     const { user, setUser } = useAuthStore()
     return (
@@ -21,6 +22,9 @@ const Dashboard = () => {
                         </Link>
                         <Link to="/stories" className="hover:text-gray-200">
                             Danh sách
+                        </Link>
+                        <Link to="/stories2" className="hover:text-gray-200">
+                            Danh sách 2
                         </Link>
                         <Link to="/add" className="hover:text-gray-200">
                             Thêm mới
@@ -54,6 +58,7 @@ const Dashboard = () => {
                 <Route path="/stories" element={<StoriesList></StoriesList>}></Route>
                 <Route path="/signin" element={<Signin></Signin>}></Route>
                 <Route path="/signup" element={<SignUp></SignUp>}></Route>
+                <Route path="/stories2" element={<List></List>}></Route>
                 {/* <Route path="/signup" element={<Signup></Signup>}></Route>
                 <Route path="/signin" element={<Signin></Signin>}></Route> */}
             </Routes>
