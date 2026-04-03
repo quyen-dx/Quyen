@@ -26,7 +26,7 @@ const SignUp = () => {
             form.resetFields()
         },
         onError: (error: any) => {
-            toast.error(error?.response?.data?.message || "dang ki khong than cong")
+            toast.error(error || "dang ki khong than cong")
         }
     })
     const onFinish = (data: any) => {
