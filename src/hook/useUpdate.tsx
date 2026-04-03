@@ -1,10 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Form } from "antd";
-import { useState } from "react";
 import toast from "react-hot-toast";
 import { instance } from "../model/axios";
 import { Stories } from "../types/product";
-import UiUpdate from "./uiUpdate";
+
 
 const useUpdateStory = () => {
     const query = useQueryClient()

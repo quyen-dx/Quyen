@@ -1,7 +1,6 @@
 
 import { Form, Input, Modal } from "antd";
-import { useState } from "react";
-import { Stories } from "../types/product";
+
 const UiUpdate = ({open, setOpen, editing, setEditing, onSubmit}) => {
 
     return (
