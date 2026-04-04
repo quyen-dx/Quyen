@@ -1,0 +1,9 @@
+<form nz-form [formGroup]="categoryform" class="login-form" (ngSubmit)="add()">
+    <nz-form-item>
+        <nz-form-control nzErrorTip="name khong de trong">
+            <nz-form-label nzRequired="">Name</nz-form-label>
+            <input type="text" nz-input formControlName="name" placeholder="Name" />
+        </nz-form-control>
+    </nz-form-item>
+    <button nz-button class="login-form-button login-form-margin" nzType="primary">Theem</button>
+</form>

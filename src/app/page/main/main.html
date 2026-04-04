@@ -2,7 +2,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     crossorigin="anonymous" />
-
 <style>
     body {
         font-family: 'Satoshi', sans-serif;
@@ -20,77 +19,27 @@
 <app-banner />
 <section class="py-10 md:py-16 bg-white">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24">
-        <h2 class="text-2xl md:text-[40px] font-[900] text-center uppercase tracking-tight mb-6 md:mb-10">New Arrivals
+        <h2 class="text-2xl md:text-[40px] font-[900] text-center uppercase tracking-tight mb-6 md:mb-10">
+            Product
         </h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
 
+            @for (product of products; track product.id) {
             <div class="group cursor-pointer" routerLink="/detail/1">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/image/Frame 32.png" alt="T-shirt with Tape Details"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                <div class="w-[300px] h-[300px] overflow-hidden" >
+                    <img [src]="product.image" alt="" class="h-[full] object-cover">
                 </div>
-                <h3 class="font-bold text-xs md:text-base text-black mb-1">T-shirt with Tape Details</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px] md:text-xs"><i class="fa-solid fa-star"></i><i
+                <div>
+                    <h1 class="font-bold text-2xl">{{product.name}}</h1>
+                    <span class="text-[10px] md:text-xs text-yellow-400"><i class="fa-solid fa-star"></i><i
                             class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-                    <span class="text-[10px] md:text-xs text-gray-400">4/5</span>
-                </div>
-                <span class="font-bold text-sm md:text-lg">$120</span>
-            </div>
-
-            <div class="group cursor-pointer" routerLink="/detail/1">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/image/Frame 33.png" alt="Skinny Fit Jeans"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-xs md:text-base text-black mb-1">Skinny Fit Jeans</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px] md:text-xs"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-                    <span class="text-[10px] md:text-xs text-gray-400">3.5/5</span>
-                </div>
-                <div class="flex items-center gap-1 flex-wrap">
-                    <span class="font-bold text-sm md:text-lg">$240</span>
-                    <span class="line-through-price text-xs md:text-sm">$260</span>
-                    <span class="badge-sale text-white text-[9px] font-bold px-1 py-0.5 rounded">-20%</span>
+                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>4/5</span>
+                    <p>{{product.price}}</p>
+                    <p>{{product.description}}</p>
+                    <p><span class="font-bold">Tag:</span> {{product.category?.name}}</p>
                 </div>
             </div>
-
-            <div class="group cursor-pointer" routerLink="/detail/1">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/image/Frame 34.png" alt="Checkered Shirt"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-xs md:text-base text-black mb-1">Checkered Shirt</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px] md:text-xs"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-                    <span class="text-[10px] md:text-xs text-gray-400">4.5/5</span>
-                </div>
-                <span class="font-bold text-sm md:text-lg">$180</span>
-            </div>
-
-            <div class="group cursor-pointer" routerLink="/detail/1">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/image/Frame 38.png" alt="Sleeve Striped T-shirt"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-xs md:text-base text-black mb-1">Sleeve Striped T-shirt</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px] md:text-xs"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-                    <span class="text-[10px] md:text-xs text-gray-400">4.5/5</span>
-                </div>
-                <div class="flex items-center gap-1 flex-wrap">
-                    <span class="font-bold text-sm md:text-lg">$130</span>
-                    <span class="line-through-price text-xs md:text-sm">$160</span>
-                    <span class="badge-sale text-white text-[9px] font-bold px-1 py-0.5 rounded">-30%</span>
-                </div>
-            </div>
+            }
 
         </div>
         <div class="flex justify-center mt-6 md:mt-10 " routerLink="/category">
@@ -100,15 +49,12 @@
         </div>
     </div>
 </section>
-
 <div class="border-t border-gray-200"></div>
-
 <section class="py-10 md:py-16 bg-white">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24">
         <h2 class="text-2xl md:text-[40px] font-[900] text-center uppercase tracking-tight mb-6 md:mb-10">Top Selling
         </h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
-
             <div class="group cursor-pointer" routerLink="/detail/1">
                 <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
                     <img src="assets/image2/Frame 32.png" alt="Vertical Striped Shirt"
@@ -116,9 +62,11 @@
                 </div>
                 <h3 class="font-bold text-xs md:text-base text-black mb-1">Vertical Striped Shirt</h3>
                 <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px] md:text-xs"><i class="fa-solid fa-star"></i><i
+                    <div class="flex text-yellow-400 text-[10px] md:text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                             class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                            class="fa-regular fa-star"></i>
+                    </div>
                     <span class="text-[10px] md:text-xs text-gray-400">5/5</span>
                 </div>
                 <div class="flex items-center gap-1 flex-wrap">
@@ -127,7 +75,6 @@
                     <span class="badge-sale text-white text-[9px] font-bold px-1 py-0.5 rounded">-20%</span>
                 </div>
             </div>
-
             <div class="group cursor-pointer" routerLink="/detail/1">
                 <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
                     <img src="assets/image/Frame 33.png" alt="Courage Graphic T-shirt"
@@ -135,14 +82,15 @@
                 </div>
                 <h3 class="font-bold text-xs md:text-base text-black mb-1">Courage Graphic T-shirt</h3>
                 <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px] md:text-xs"><i class="fa-solid fa-star"></i><i
+                    <div class="flex text-yellow-400 text-[10px] md:text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                             class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                            class="fa-regular fa-star"></i>
+                    </div>
                     <span class="text-[10px] md:text-xs text-gray-400">4/5</span>
                 </div>
                 <span class="font-bold text-sm md:text-lg">$145</span>
             </div>
-
             <div class="group cursor-pointer" routerLink="/detail/1">
                 <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
                     <img src="assets/image/Frame 34.png" alt="Loose Fit Bermuda Shorts"
@@ -150,14 +98,14 @@
                 </div>
                 <h3 class="font-bold text-xs md:text-base text-black mb-1">Loose Fit Bermuda Shorts</h3>
                 <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px] md:text-xs"><i class="fa-solid fa-star"></i><i
+                    <div class="flex text-yellow-400 text-[10px] md:text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                             class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-                    <span class="text-[10px] md:text-xs text-gray-400">3/5</span>
+                            class="fa-regular fa-star"></i>
+                        <span class="font-bold text-sm md:text-lg">$80</span>
+                    </div>
                 </div>
-                <span class="font-bold text-sm md:text-lg">$80</span>
             </div>
-
             <div class="group cursor-pointer" routerLink="/detail/1">
                 <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
                     <img src="assets/image/Frame 38.png" alt="Faded Skinny Jeans"
@@ -165,14 +113,15 @@
                 </div>
                 <h3 class="font-bold text-xs md:text-base text-black mb-1">Faded Skinny Jeans</h3>
                 <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px] md:text-xs"><i class="fa-solid fa-star"></i><i
+                    <div class="flex text-yellow-400 text-[10px] md:text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                             class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                            class="fa-regular fa-star"></i>
+                    </div>
                     <span class="text-[10px] md:text-xs text-gray-400">4.5/5</span>
                 </div>
                 <span class="font-bold text-sm md:text-lg">$210</span>
             </div>
-
         </div>
         <div class="flex justify-center mt-6 md:mt-10" routerLink="/category">
             <button
@@ -219,7 +168,7 @@
         <div class="flex items-center justify-between mb-6 md:mb-8">
             <h2 class="text-xl md:text-[40px] font-[900] uppercase tracking-tight leading-tight">Our Happy<br
                     class="md:hidden" /> Customers</h2>
-            <div class="flex gap-2 shrink-0">
+            <div>
                 <button data-prev
                     class="w-8 h-8 md:w-9 md:h-9 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition">
                     <i class="fa-solid fa-arrow-left text-xs md:text-sm"></i>
@@ -230,33 +179,29 @@
                 </button>
             </div>
         </div>
+
         <div class="md:hidden relative overflow-hidden">
             <div id="slider" class="flex transition-transform duration-300 ease-in-out">
                 <div class="min-w-full border border-gray-200 rounded-2xl p-5">
-                    <div class="flex text-yellow-400 text-sm mb-2"><i class="fa-solid fa-star"></i><i
+                    <div class="flex text-yellow-400 text-sm mb-2">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                             class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            class="fa-solid fa-star"></i>
+                    </div>
                     <div class="flex items-center gap-2 mb-2"><span class="font-bold text-sm">Sarah M.</span><i
                             class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
                     <p class="text-gray-600 text-sm leading-relaxed">"I'm blown away by the quality and style of the
                         clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought
                         has exceeded my expectations."</p>
                 </div>
+
                 <div class="min-w-full border border-gray-200 rounded-2xl p-5">
-                    <div class="flex text-yellow-400 text-sm mb-2"><i class="fa-solid fa-star"></i><i
+                    <div class="flex text-yellow-400 text-sm mb-2">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                             class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            class="fa-solid fa-star"></i>
+                    </div>
                     <div class="flex items-center gap-2 mb-2"><span class="font-bold text-sm">Alex K.</span><i
-                            class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
-                    <p class="text-gray-600 text-sm leading-relaxed">"Finding clothes that align with my values was a
-                        challenge until I discovered Shop.co. The range of sustainable fashion choices they offer is
-                        incredible."</p>
-                </div>
-                <div class="min-w-full border border-gray-200 rounded-2xl p-5">
-                    <div class="flex text-yellow-400 text-sm mb-2"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <div class="flex items-center gap-2 mb-2"><span class="font-bold text-sm">James L.</span><i
                             class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
                     <p class="text-gray-600 text-sm leading-relaxed">"As someone who's always on the hunt for the
                         perfect fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is
@@ -264,37 +209,51 @@
                 </div>
             </div>
         </div>
-
         <div class="hidden md:grid grid-cols-3 gap-5">
             <div class="border border-gray-200 rounded-2xl p-6">
-                <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i></div>
-                <div class="flex items-center gap-2 mb-3"><span class="font-bold text-sm">Sarah M.</span><i
-                        class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
-                <p class="text-gray-600 text-sm leading-relaxed">"I'm blown away by the quality and style of the clothes
-                    I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded
-                    my expectations."</p>
+                <div class="flex text-yellow-400 text-sm mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="font-bold text-sm">Sarah M.</span>
+                    <i class="fa-solid fa-circle-check text-green-500 text-sm"></i>
+                    <p class="text-gray-600 text-sm leading-relaxed">"I'm blown away by the quality and style of the
+                        clothes
+                        I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has
+                        exceeded
+                        my expectations."</p>
+                </div>
             </div>
             <div class="border border-gray-200 rounded-2xl p-6">
-                <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i></div>
-                <div class="flex items-center gap-2 mb-3"><span class="font-bold text-sm">Alex K.</span><i
-                        class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
-                <p class="text-gray-600 text-sm leading-relaxed">"Finding clothes that align with my values was a
-                    challenge until I discovered Shop.co. The range of sustainable fashion choices they offer is
-                    incredible."</p>
+                <div class="flex text-yellow-400 text-sm mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="font-bold text-sm">Sarah M.</span>
+                    <i class="fa-solid fa-circle-check text-green-500 text-sm"></i>
+                    <p class="text-gray-600 text-sm leading-relaxed">"I'm blown away by the quality and style of the
+                        clothes
+                        I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has
+                        exceeded
+                        my expectations."</p>
+                </div>
             </div>
             <div class="border border-gray-200 rounded-2xl p-6">
-                <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i></div>
-                <div class="flex items-center gap-2 mb-3"><span class="font-bold text-sm">James L.</span><i
-                        class="fa-solid fa-circle-check text-green-500 text-sm"></i></div>
-                <p class="text-gray-600 text-sm leading-relaxed">"As someone who's always on the hunt for the perfect
-                    fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only
-                    diverse but also curated with the finest trends."</p>
+                <div class="flex text-yellow-400 text-sm mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="font-bold text-sm">Sarah M.</span>
+                    <i class="fa-solid fa-circle-check text-green-500 text-sm"></i>
+                    <p class="text-gray-600 text-sm leading-relaxed">"I'm blown away by the quality and style of the
+                        clothes
+                        I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has
+                        exceeded
+                        my expectations."</p>
+                </div>
             </div>
         </div>
     </div>

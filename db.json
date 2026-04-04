@@ -1,0 +1,58 @@
+{
+  "categories": [
+    {
+      "name": "Áo",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Quần"
+    },
+    {
+      "id": 3,
+      "name": "Giày"
+    },
+    {
+      "name": "Váyy",
+      "id": 4
+    },
+    {
+      "name": "mmmmm",
+      "id": 5
+    }
+  ],
+  "products": [
+    {
+      "name": "bbbbb",
+      "price": 11111111111,
+      "image": "https://hoangphucphoto.com/wp-content/uploads/2024/06/anh-giay-thumb.jpeg",
+      "description": "Giày đẹp nhất thế giới",
+      "categoryId": 5,
+      "id": 2
+    },
+    {
+      "name": "Quần đẹp",
+      "price": 999999,
+      "image": "https://lados.vn/wp-content/uploads/2024/07/b2e1e9cc106f8590f0a90451f343ca7a-1695283467879.jpeg",
+      "description": "Quần đẹp nhất thế giưới",
+      "categoryId": 2,
+      "id": 3
+    },
+    {
+      "name": "Váy trắng",
+      "price": 99999,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Dress_MET_19.181.1_F2.jpeg/250px-Dress_MET_19.181.1_F2.jpeg",
+      "description": "Váy đẹp nhất thớ giứi",
+      "categoryId": 4,
+      "id": 4
+    },
+    {
+      "name": "Áo đen",
+      "price": 666666,
+      "image": "https://bizweb.dktcdn.net/100/575/016/products/mc10224920ec9534129a4b3d79b600.jpg?v=1773136916927",
+      "description": "Áo đẹp nhất thế giối",
+      "categoryId": 1,
+      "id": 5
+    }
+  ]
+}

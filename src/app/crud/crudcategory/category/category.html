@@ -1,0 +1,25 @@
+<nz-table #categoryTable [nzData]="category">
+    <thead>
+        <tr>
+            <th>stt</th>
+            <th>name</th>
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (c of category;let index = $index; track c.id) {
+        <tr>
+            <td>{{index +1}}</td>
+            <td>{{c.name}}</td>
+            <td>
+                <button class="py-[8px] px-[16px] bg-yellow-700 text-white rounded-[12px] hover:opacity-70"
+                    [routerLink]="['/admin/category/edit', c.id]">Sua</button>
+                <button class="py-[8px] px-[16px] bg-red-700 text-white rounded-[12px] hover:opacity-70" nz-popconfirm
+                    nzPopconfirmTitle="Xóa {{c.name}}?" (nzOnConfirm)="delete(c.id)">
+                    Xóa
+                </button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</nz-table>

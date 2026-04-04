@@ -1,0 +1,40 @@
+ <form nz-form [formGroup]="productform" class="login-form" (ngSubmit)="add()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="name khong de trong">
+            <nz-form-label nzRequired="">Name</nz-form-label>
+            <input type="text" nz-input formControlName="name" placeholder="name" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control nzErrorTip="price khong de trong">
+            <nz-form-label nzRequired="">Price</nz-form-label>
+            <input type="number" nz-input formControlName="price" placeholder="price" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control nzErrorTip="image khong de trong">
+            <nz-form-label nzRequired="">Image</nz-form-label>
+            <input type="text" nz-input formControlName="image" placeholder="image" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control nzErrorTip="description khong de trong">
+            <nz-form-label nzRequired="">description</nz-form-label>
+            <input type="text" nz-input formControlName="description" placeholder="description" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control nzErrorTip="category khong de trong">
+            <nz-form-label nzRequired="">category</nz-form-label>
+            <nz-select formControlName="categoryId"  nzPlaceHolder="-- chon category --">
+                <nz-option *ngFor="let c of category" [nzValue]="c.id" [nzLabel]="c.name"></nz-option>
+            </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      
+      <button nz-button class="login-form-button login-form-margin" nzType="primary">Sua</button>
+    </form>

@@ -1,0 +1,31 @@
+<nz-table #productTable [nzData]="products">
+    <thead>
+        <tr>
+            <th>Stt</th>
+            <th>name</th>
+            <th>image</th>
+            <th>price</th>
+            <th>description</th>
+            <th>category</th>
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (product of products; let index = $index; track product.id) {
+        <tr>
+            <td>{{index + 1}}</td>
+            <td>{{product.name}}</td>
+            <td><img [src]="product.image" alt="" width = '120'></td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.category?.name}}</td>
+            <td class="flex gap-5">
+                <button class="py-[8px] px-[16px] bg-yellow-700 text-white rounded-[12px] hover:opacity-70" [routerLink]="['/admin/product/edit', product.id]">Sua</button>
+                <button class="py-[8px] px-[16px] bg-red-700 text-white rounded-[12px] hover:opacity-70" nz-popconfirm nzPopconfirmTitle="Xóa {{product.name}}?" (nzOnConfirm)="delete(product.id)">
+                    Xóa
+                </button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</nz-table>
