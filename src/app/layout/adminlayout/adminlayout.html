@@ -1,6 +1,6 @@
-<nz-layout class="h-screen">
+<nz-layout>
       <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
-        <div class="logo"></div>
+        <div class="logo text-white flex items-center justify-center text-bold text-3xl">ADMIN</div>
         <ul nz-menu nzTheme="dark" nzMode="inline">
           <li nz-submenu nzTitle="Product" nzIcon="product">
             <ul>
@@ -12,6 +12,12 @@
             <ul>
               <li nz-menu-item><a routerLink="/admin/category">Categories all</a></li>
               <li nz-menu-item><a routerLink="/admin/category/add">Thêm Categories</a></li>
+            </ul>
+          </li>
+          <li nz-submenu nzTitle="Auth" nzIcon="user">
+            <ul>
+              <li nz-menu-item><a routerLink="/admin/auth">Auth all</a></li>
+              <li nz-menu-item><a routerLink="/admin/auth/add">Thêm auth</a></li>
             </ul>
           </li>
           <li nz-menu-item>
@@ -34,6 +40,7 @@
             <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
           </nz-breadcrumb>
           <div class="inner-content">
+            <h1 class=" font-bold text-5xl text-red-900 text-center mb-9">Admin Page</h1>
             <router-outlet/>
           </div>
         </nz-content>

@@ -5,9 +5,10 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { RouterLink } from "@angular/router";
+import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-product',
-  imports: [NzTableModule, NzPopconfirmModule, RouterLink],
+  imports: [NzTableModule, NzPopconfirmModule, RouterLink,NgFor],
   templateUrl: './product.html',
   styleUrl: './product.css',
 })

@@ -14,110 +14,42 @@
 <div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 pb-16">
   <h1 class="text-2xl md:text-[32px] font-[900] uppercase tracking-tight mb-6">Your Cart</h1>
   <div class="flex flex-col lg:flex-row gap-6">
-    <div class="flex-1 flex flex-col gap-4">
-      <div class="border border-gray-200 rounded-2xl p-4 flex items-start gap-4">
-        <div class="w-20 h-20 md:w-24 md:h-24 bg-[#F0EEED] rounded-xl overflow-hidden shrink-0">
-          <img src="assets/imgcategory/Frame 8.png" class="w-full h-full object-cover" />
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-start justify-between gap-2">
-            <h3 class="font-bold text-sm md:text-base">Gradient Graphic T-shirt</h3>
-            <button class="text-red-500 shrink-0 hover:text-red-700 transition">
-              <i class="fa-solid fa-trash text-sm"></i>
-            </button>
-          </div>
-          <p class="text-xs text-gray-500 mt-0.5">Size: <span class="text-black">Large</span></p>
-          <p class="text-xs text-gray-500">Color: <span class="text-black">White</span></p>
-          <div class="flex items-center justify-between mt-3">
-            <span class="font-bold text-base md:text-lg">$145</span>
-            <div class="flex items-center gap-3 bg-gray-100 rounded-full px-4 py-2">
-              <button class="text-base font-bold leading-none qty-btn" data-action="-1" data-target="qty1">−</button>
-              <span id="qty1" class="text-sm font-semibold w-4 text-center">1</span>
-              <button class="text-base font-bold leading-none qty-btn" data-action="1" data-target="qty1">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="border border-gray-200 rounded-2xl p-4 flex items-start gap-4">
-        <div class="w-20 h-20 md:w-24 md:h-24 bg-[#F0EEED] rounded-xl overflow-hidden shrink-0">
-          <img src="assets/imgcategory/Frame 3.png" class="w-full h-full object-cover" />
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-start justify-between gap-2">
-            <h3 class="font-bold text-sm md:text-base">Checkered Shirt</h3>
-            <button class="text-red-500 shrink-0 hover:text-red-700 transition">
-              <i class="fa-solid fa-trash text-sm"></i>
-            </button>
-          </div>
-          <p class="text-xs text-gray-500 mt-0.5">Size: <span class="text-black">Medium</span></p>
-          <p class="text-xs text-gray-500">Color: <span class="text-black">Red</span></p>
-          <div class="flex items-center justify-between mt-3">
-            <span class="font-bold text-base md:text-lg">$180</span>
-            <div class="flex items-center gap-3 bg-gray-100 rounded-full px-4 py-2">
-              <button class="text-base font-bold leading-none qty-btn" data-action="-1" data-target="qty2">−</button>
-              <span id="qty2" class="text-sm font-semibold w-4 text-center">1</span>
-              <button class="text-base font-bold leading-none qty-btn" data-action="1" data-target="qty2">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="border border-gray-200 rounded-2xl p-4 flex items-start gap-4">
-        <div class="w-20 h-20 md:w-24 md:h-24 bg-[#F0EEED] rounded-xl overflow-hidden shrink-0">
-          <img src="assets/imgcategory/Frame 2.png" class="w-full h-full object-cover" />
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-start justify-between gap-2">
-            <h3 class="font-bold text-sm md:text-base">Skinny Fit Jeans</h3>
-            <button class="text-red-500 shrink-0 hover:text-red-700 transition">
-              <i class="fa-solid fa-trash text-sm"></i>
-            </button>
-          </div>
-          <p class="text-xs text-gray-500 mt-0.5">Size: <span class="text-black">Large</span></p>
-          <p class="text-xs text-gray-500">Color: <span class="text-black">Blue</span></p>
-          <div class="flex items-center justify-between mt-3">
-            <span class="font-bold text-base md:text-lg">$240</span>
-            <div class="flex items-center gap-3 bg-gray-100 rounded-full px-4 py-2">
-              <button class="text-base font-bold leading-none qty-btn" data-action="-1" data-target="qty3">−</button>
-              <span id="qty3" class="text-sm font-semibold w-4 text-center">1</span>
-              <button class="text-base font-bold leading-none qty-btn" data-action="1" data-target="qty3">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
+    <div class="flex-1 flex flex-col gap-4">
+      <div *ngFor="let item of cartItems" class="border border-gray-200 rounded-2xl p-4 flex items-start gap-4">
+        <div class="w-20 h-20 md:w-24 md:h-24 bg-[#F0EEED] rounded-xl overflow-hidden shrink-0">
+          <img [src]="item.product.image" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="font-bold text-sm md:text-base">{{item.product.name}}</h3>
+            <button (click)="remove(item.product.id)" class="text-red-500 shrink-0 hover:text-red-700 transition">
+              <i class="fa-solid fa-trash text-sm"></i>
+            </button>
+          </div>
+          <div class="flex items-center justify-between mt-3">
+            <span class="font-bold text-base md:text-lg">{{item.product.price}} $</span>
+            <div class="flex items-center gap-3 bg-gray-100 rounded-full px-4 py-2">
+              <button class="text-base font-bold leading-none qty-btn"  (click)="updateQty(item.product.id, item.quantity -1)">−</button>
+              <span id="qty1" class="text-sm font-semibold w-4 text-center">{{item.quantity}}</span>
+              <button class="text-base font-bold leading-none qty-btn"  (click)="updateQty(item.product.id, item.quantity +1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p *ngIf="cartItems.length === 0">Gio hang rtong</p>
     </div>
+
     <div class="lg:w-96 shrink-0">
       <div class="border border-gray-200 rounded-2xl p-6">
         <h2 class="font-bold text-lg mb-5">Order Summary</h2>
-        <div class="flex flex-col gap-3 mb-5">
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-gray-500">Subtotal</span>
-            <span class="font-semibold">$565</span>
-          </div>
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-gray-500">Discount (-20%)</span>
-            <span class="font-semibold text-red-500">-$113</span>
-          </div>
-          <div class="flex items-center justify-between text-sm">
-            <span class="text-gray-500">Delivery Fee</span>
-            <span class="font-semibold">$15</span>
-          </div>
-        </div>
         <div class="border-t border-gray-200 pt-4 mb-5">
           <div class="flex items-center justify-between">
             <span class="font-bold text-base">Total</span>
-            <span class="font-bold text-xl">$467</span>
+            <span class="font-bold text-xl">{{total}}</span>
           </div>
         </div>
-        <div class="flex gap-2 mb-4">
-          <div class="flex-1 flex items-center gap-2 border border-gray-200 rounded-full px-4 py-2.5">
-            <i class="fa-solid fa-tag text-gray-300 text-sm"></i>
-            <input type="text" placeholder="Add promo code"
-              class="bg-transparent text-sm outline-none w-full text-gray-600 placeholder-gray-400" />
-          </div>
-          <button
-            class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-800 transition">Apply</button>
-        </div>
+       
         <button
           class="w-full bg-black text-white py-3.5 rounded-full font-semibold text-sm hover:bg-gray-800 transition flex items-center justify-center gap-2">
           Go to Checkout <i class="fa-solid fa-arrow-right text-xs"></i>

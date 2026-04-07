@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
@@ -27,8 +27,23 @@ export class Productadd {
     price: new FormControl<number | null>(null, [Validators.required, Validators.min(50000)]),
     image: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
-    categoryId: new FormControl<number | null>(null, [Validators.required])
+    categoryId: new FormControl<number | null>(null, [Validators.required]),
+    images: new FormArray([
+      new FormControl('', [Validators.required])
+    ])
   })
+  get imagesArray(){
+    return this.productform.get('images') as FormArray
+  }
+  addImage(){
+    this.imagesArray.push(new FormControl(''))
+  }
+  removeImage(i: number){
+    this.imagesArray.removeAt(i)
+  }
+  getControl(i: number) :FormControl{
+    return this.imagesArray.at(i) as FormControl
+  }
   ngOnInit() {
     this.http.get<ICategory[]>("http://localhost:3000/categories").subscribe({
       next: (data) => {

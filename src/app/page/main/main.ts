@@ -16,7 +16,7 @@ export class Main {
   chan = inject(ChangeDetectorRef)
   message = inject(NzMessageService)
   ngOnInit(){
-    this.http.get<IProduct[]>("http://localhost:3000/products?_expand=category").subscribe({
+    this.http.get<IProduct[]>("http://localhost:3000/products?_expand=category&_sort=id&_order=desc&_limit=4").subscribe({
       next:(data) =>{
         this.products = data
         this.chan.markForCheck()

@@ -1,40 +1,53 @@
- <form nz-form [formGroup]="productform" class="login-form" (ngSubmit)="add()">
-      <nz-form-item>
-        <nz-form-control nzErrorTip="name khong de trong">
-            <nz-form-label nzRequired="">Name</nz-form-label>
-            <input type="text" nz-input formControlName="name" placeholder="name" />
-        </nz-form-control>
-      </nz-form-item>
+<form nz-form [formGroup]="productform" class="login-form" (ngSubmit)="add()">
+  <nz-form-item>
+    <nz-form-control nzErrorTip="name khong de trong">
+      <nz-form-label nzRequired="">Name</nz-form-label>
+      <input type="text" nz-input formControlName="name" placeholder="name" />
+    </nz-form-control>
+  </nz-form-item>
 
-      <nz-form-item>
-        <nz-form-control nzErrorTip="price khong de trong">
-            <nz-form-label nzRequired="">Price</nz-form-label>
-            <input type="number" nz-input formControlName="price" placeholder="price" />
-        </nz-form-control>
-      </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="price khong de trong">
+      <nz-form-label nzRequired="">Price</nz-form-label>
+      <input type="number" nz-input formControlName="price" placeholder="price" />
+    </nz-form-control>
+  </nz-form-item>
 
-      <nz-form-item>
-        <nz-form-control nzErrorTip="image khong de trong">
-            <nz-form-label nzRequired="">Image</nz-form-label>
-            <input type="text" nz-input formControlName="image" placeholder="image" />
-        </nz-form-control>
-      </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="image khong de trong">
+      <nz-form-label nzRequired="">Image</nz-form-label>
+      <input type="text" nz-input formControlName="image" placeholder="image" />
+    </nz-form-control>
+  </nz-form-item>
 
-      <nz-form-item>
-        <nz-form-control nzErrorTip="description khong de trong">
-            <nz-form-label nzRequired="">description</nz-form-label>
-            <input type="text" nz-input formControlName="description" placeholder="description" />
-        </nz-form-control>
-      </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="description khong de trong">
+      <nz-form-label nzRequired="">description</nz-form-label>
+      <input type="text" nz-input formControlName="description" placeholder="description" />
+    </nz-form-control>
+  </nz-form-item>
 
-      <nz-form-item>
-        <nz-form-control nzErrorTip="category khong de trong">
-            <nz-form-label nzRequired="">category</nz-form-label>
-            <nz-select formControlName="categoryId"  nzPlaceHolder="-- chon category --">
-                <nz-option *ngFor="let c of category" [nzValue]="c.id" [nzLabel]="c.name"></nz-option>
-            </nz-select>
-        </nz-form-control>
-      </nz-form-item>
-      
-      <button nz-button class="login-form-button login-form-margin" nzType="primary">Thêm mới</button>
-    </form>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="category khong de trong">
+      <nz-form-label nzRequired="">category</nz-form-label>
+      <nz-select formControlName="categoryId" nzPlaceHolder="-- chon category --">
+        <nz-option *ngFor="let c of category" [nzValue]="c.id" [nzLabel]="c.name"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzErrorTip="images support khong de trong">
+      <nz-form-label nzRequired="">images mini</nz-form-label>
+      <div formArrayName="images">
+        <div *ngFor="let img of imagesArray.controls; let i = index" class="flex gap-2 mb-2">
+          <input type="text" nz-input [formControl]="getControl(i)" placeholder="url anh {{i + 1}}">
+          <button nz-button nzType="default" nz-Danger type="button" (click)="removeImage(i)">Xoá</button>
+        </div>
+      </div>
+      <button  nz-button nzType="dashed" nz-Danger type="button" (click)="addImage()">thêm ảnh</button>
+    </nz-form-control>
+  </nz-form-item>
+
+  <button nz-button class="login-form-button login-form-margin" nzType="primary">Thêm mới</button>
+</form>

@@ -43,23 +43,18 @@
     </div>
     <div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 pb-14">
         <div class="flex flex-col md:flex-row gap-8 md:gap-12">
-            <div class="flex flex-col-reverse md:flex-row gap-3 md:w-1/2">
+            <div class="flex flex-col-reverse md:flex-row gap-3 md:w-1/2" *ngIf="product as p">
                 <div class="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-visible">
-                    <img onclick="setMain(this)" src="assets/imgdetail/image 2.png"
-                        class="thumb active w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl cursor-pointer border border-gray-200 shrink-0" />
-                    <img onclick="setMain(this)" src="assets/imgdetail/image 5.png"
-                        class="thumb w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl cursor-pointer border border-gray-200 shrink-0" />
-                    <img onclick="setMain(this)" src="assets/imgdetail/image 6.png"
-                        class="thumb w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl cursor-pointer border border-gray-200 shrink-0" />
+                    <img *ngFor="let img of images"  [src]="img" (click)="slImage = img" [class.ring-2]="slImage === img" [class.ring-black]="slImage === img"  class="thumb active w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl cursor-pointer border border-gray-200 shrink-0">
                 </div>
                 <div class="flex-1 bg-[#F0EEED] rounded-2xl overflow-hidden aspect-square">
-                    <img id="mainImg" src="assets/imgdetail/image 1.png" class="w-full h-full object-cover" />
+                    <img id="mainImg" [src]="slImage" class="w-full h-full object-cover" />
                 </div>
             </div>
 
 
-            <div class="md:w-1/2">
-                <h1 class="text-2xl md:text-[32px] font-[900] uppercase tracking-tight mb-2">One Life Graphic T-Shirt
+            <div class="md:w-1/2" *ngIf="product as p">
+                <h1 class="text-2xl md:text-[32px] font-[900] uppercase tracking-tight mb-2">{{p.name}}
                 </h1>
 
                 <div class="flex items-center gap-2 mb-3">
@@ -70,14 +65,13 @@
                 </div>
 
                 <div class="flex items-center gap-3 mb-4">
-                    <span class="text-2xl font-bold">$260</span>
-                    <span class="line-through-price text-lg">$300</span>
+                    <span class="text-2xl font-bold">{{p.price}} $ </span>
+                    <span class="line-through-price text-lg">{{(p.price / 0.6)}} $ </span>
                     <span class="badge-sale text-white text-xs font-bold px-2 py-0.5 rounded-full">-40%</span>
                 </div>
 
                 <p class="text-gray-500 text-sm leading-relaxed mb-5 border-b border-gray-200 pb-5">
-                    This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric,
-                    it offers superior comfort and style.
+                    {{p.description}}
                 </p>
 
 
@@ -109,11 +103,11 @@
 
                 <div class="border-t border-gray-200 pt-5 flex items-center gap-4">
                     <div class="flex items-center gap-4 bg-gray-100 rounded-full px-5 py-3">
-                        <button onclick="changeQty(-1)" class="text-xl font-bold leading-none">−</button>
-                        <span id="qty" class="text-sm font-semibold w-4 text-center">1</span>
-                        <button onclick="changeQty(1)" class="text-xl font-bold leading-none">+</button>
+                        <button (click)="decreaseQty()"  class="text-xl font-bold leading-none">−</button>
+                        <span  class="text-sm font-semibold w-4 text-center">{{qty}}</span>
+                        <button (click)="qty+1" class="text-xl font-bold leading-none">+</button>
                     </div>
-                    <button
+                    <button (click)="addToCart()"
                         class="flex-1 bg-black text-white py-3 rounded-full font-semibold text-sm hover:bg-gray-800 transition">
                         Add to Cart
                     </button>
@@ -232,59 +226,20 @@
     <div class="max-w-[1440px] mx-auto px-4 sm:px-10 md:px-16 lg:px-24 py-12 border-t border-gray-200">
         <h2 class="text-2xl md:text-[32px] font-[900] uppercase text-center tracking-tight mb-8">You Might Also Like
         </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            <div class="group cursor-pointer">
-                <div class="bg-[#F0EEED] rounded-2xl overflow-hidden aspect-square mb-3">
-                    <img src="assets/imgdetail/Frame 32.png" alt="Polo with Contrast Trims"
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6" >
+            <div class="group cursor-pointer" *ngFor="let p of products" >
+                <div class="bg-[#F0EEED] rounded-2xl overflow-hidden aspect-square mb-3" >
+                    <img [routerLink]="['/detail/', p.id]" [src]="p.image" alt="Polo with Contrast Trims"
                         class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                 </div>
-                <h3 class="font-bold text-sm md:text-base mb-1">Polo with Contrast Trims</h3>
+                <h3 class="font-bold text-sm md:text-base mb-1">{{p.name}}</h3>
                 <div class="flex text-yellow-400 text-xs mb-1"><i class="fa-solid fa-star"></i><i
                         class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                         class="fa-regular fa-star"></i></div>
                 <div class="flex items-center gap-2">
-                    <span class="font-bold">$212</span>
-                    <span class="line-through-price text-sm">$242</span>
+                    <span class="font-bold">{{p.price}} $</span>
+                    <span class="line-through-price text-sm">{{p.price}} $</span>
                     <span class="badge-sale text-white text-[10px] font-bold px-1.5 py-0.5 rounded">-20%</span>
-                </div>
-            </div>
-
-            <div class="group cursor-pointer">
-                <div class="bg-[#F0EEED] rounded-2xl overflow-hidden aspect-square mb-3">
-                    <img src="assets/imgdetail/Frame 33.png" alt="Gradient Graphic T-shirt"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-sm md:text-base mb-1">Gradient Graphic T-shirt</h3>
-                <div class="flex text-yellow-400 text-xs mb-1"><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-regular fa-star"></i></div>
-                <span class="font-bold">$145</span>
-            </div>
-
-            <div class="group cursor-pointer hidden md:block">
-                <div class="bg-[#F0EEED] rounded-2xl overflow-hidden aspect-square mb-3">
-                    <img src="assets/imgdetail/Frame 34.png" alt="Polo with Tipping Details"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-sm md:text-base mb-1">Polo with Tipping Details</h3>
-                <div class="flex text-yellow-400 text-xs mb-1"><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-regular fa-star"></i></div>
-                <span class="font-bold">$180</span>
-            </div>
-            <div>
-                <div class="bg-[#F0EEED] rounded-2xl overflow-hidden aspect-square mb-3">
-                    <img src="assets/imgdetail/Frame 38.png " alt="Black Striped T-shirt"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-sm md:text-base mb-1">Black Striped T-shirt</h3>
-                <div class="flex text-yellow-400 text-xs mb-1"><i class="fa-solid fa-star"></i><i
-                        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                        class="fa-regular fa-star"></i></div>
-                <div class="flex items-center gap-2">
-                    <span class="font-bold">$120</span>
-                    <span class="line-through-price text-sm">$160</span>
-                    <span class="badge-sale text-white text-[10px] font-bold px-1.5 py-0.5 rounded">-30%</span>
                 </div>
             </div>
         </div>

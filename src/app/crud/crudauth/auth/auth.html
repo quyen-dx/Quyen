@@ -1,0 +1,28 @@
+<nz-table #authTable [nzData]="users">
+    <thead>
+        <tr>
+            <th>stt</th>
+            <th>name</th>
+            <th>email</th>
+            <th>password</th>
+            <th>role</th>
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (u of users; let i = $index ;track u.id) {
+        <tr>
+            <td>{{i + 1}}</td>
+            <td>{{u.name}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.password}}</td>
+            <td>{{u.role}}</td>
+            <td>
+                <button class="py-[8px] px-[16px] bg-yellow-700 text-white rounded-[12px] hover:opacity-70" [routerLink]="['/admin/auth/edit',u.id]">Sua</button>
+                <button nz-popconfirm nzPopconfirmTitle="Xoá {{u.name}}" (nzOnConfirm)="delete(u.id)"
+                    nz-button nzType="default" nzDanger>Xoá</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</nz-table>

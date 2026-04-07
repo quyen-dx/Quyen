@@ -6,7 +6,7 @@
     <div class="flex-1"></div>
     <p class="flex-1 text-center whitespace-nowrap">
       Sign up and get 20% off to your first order.
-      <a href="#" class="underline font-semibold ml-1">Sign Up Now</a>
+      <a [routerLink]="[`/register`]" class="underline font-semibold ml-1">Sign Up Now</a>
     </p>
     <div class="flex-1 flex justify-end">
       <button onclick="document.getElementById('topbar').remove()" class="text-white text-xl leading-none hover:opacity-70 transition">
@@ -44,7 +44,10 @@
       <i class="fa-solid fa-magnifying-glass text-gray-400 text-lg shrink-0"></i>
       <input
         type="text"
+        name="keyword"
         placeholder="Search for products..."
+        [(ngModel)] ="keyword"
+        (keyup.enter)="search()"
         class="bg-transparent text-sm outline-none w-full text-black placeholder-gray-400"
       />
     </div>
@@ -56,9 +59,14 @@
       <button class="text-2xl text-black hover:opacity-60 transition" routerLink="/cart">
         <img src="assets/Frame.svg" alt="" class="w-[30px]">
       </button>
-      <button class="text-2xl text-black hover:opacity-60 transition">
+      
+      <button *ngIf="!user" routerLink="/login" class="text-2xl text-black hover:opacity-60 transition">
         <i class="fa-regular fa-circle-user"></i>
       </button>
+      <div *ngIf="user" class="flex items-center gap-2">
+        <span class="text-sm font-semibold">{{user.name}} - </span>
+        <button (click)="logout()">Đăng xuat</button>
+      </div>
     </div>
 
   </div>

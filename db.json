@@ -27,23 +27,35 @@
       "price": 11111111111,
       "image": "https://hoangphucphoto.com/wp-content/uploads/2024/06/anh-giay-thumb.jpeg",
       "description": "Giày đẹp nhất thế giới",
-      "categoryId": 5,
+      "categoryId": 3,
+      "images": [
+        "https://phuongstore.vn/uploads/products/3074/gallery/giay-the-thao-trang-cho-be-gai-be-trai-tu-1-12-tuoi-pd411-1777.jpg",
+        "https://product.hstatic.net/200000940071/product/giay-the-thao-asia-mau-trang-den_35682dc30ca54759a3dd4bfe2d0bc313_grande.png"
+      ],
       "id": 2
     },
     {
       "name": "Quần đẹp",
-      "price": 999999,
+      "price": 99999,
       "image": "https://lados.vn/wp-content/uploads/2024/07/b2e1e9cc106f8590f0a90451f343ca7a-1695283467879.jpeg",
       "description": "Quần đẹp nhất thế giưới",
       "categoryId": 2,
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWeCeDO04_voOMs_IzMCIgeyv2vuXvzzAkkw&s",
+        "https://down-vn.img.susercontent.com/file/sg-11134201-22110-avnzr4t57ljv33"
+      ],
       "id": 3
     },
     {
       "name": "Váy trắng",
       "price": 99999,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Dress_MET_19.181.1_F2.jpeg/250px-Dress_MET_19.181.1_F2.jpeg",
+      "image": "https://sakurafashion.vn/upload/sanpham/large/1992234840-vay-nu-co-no-4.jpg",
       "description": "Váy đẹp nhất thớ giứi",
       "categoryId": 4,
+      "images": [
+        "https://vaydibiendep.com/wp-content/uploads/2019/05/mau-vay-voan-dep-2025-mau-trang-2557.jpg",
+        "https://bizweb.dktcdn.net/100/444/111/products/367454536-122104001438008184-5844523328602829611-n.jpg?v=1692297058703"
+      ],
       "id": 4
     },
     {
@@ -52,7 +64,89 @@
       "image": "https://bizweb.dktcdn.net/100/575/016/products/mc10224920ec9534129a4b3d79b600.jpg?v=1773136916927",
       "description": "Áo đẹp nhất thế giối",
       "categoryId": 1,
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9_Ang2smZ6-_D78GFqEGZ8GCzdecA0t4zNg&s",
+        "https://product.hstatic.net/1000290074/product/57740000-1_c46acec00b71490dbeb1b23883d306ae.jpg"
+      ],
       "id": 5
+    },
+    {
+      "name": "Áo cộc",
+      "price": 77777,
+      "image": "https://dosi-in.com/images/detailed/42/CDL4_1.jpg",
+      "description": "Áo xanh xanh đẹp nhat the gio",
+      "categoryId": 1,
+      "images": [
+        "https://chodole.com/cdn/shop/products/CDL5_1_1024x1024.jpg?v=1586758906",
+        "https://pos.nvncdn.com/f4d87e-8901/ps/20250225_BLkcRuPLdV.jpeg?v=1740451624"
+      ],
+      "id": 6
+    },
+    {
+      "name": "Giày",
+      "price": 77777,
+      "image": "https://agiay.vn/wp-content/uploads/2022/09/giay-the-thao-nu-ag0155-13.jpg",
+      "description": "giay dẹp nhat the gioi",
+      "categoryId": 3,
+      "images": [
+        "https://bizweb.dktcdn.net/100/527/490/products/giay-nam-cao-cap-da-that-lecos-lg10-2-1731769819605.jpg?v=1731771512087",
+        "https://product.hstatic.net/200000195587/product/368-4_025f27a6967048949ec02ee33d5e865b_master.jpg"
+      ],
+      "id": 7
+    },
+    {
+      "name": "quànq dai",
+      "price": 888888,
+      "image": "https://cdn.kkfashion.vn/29293-large_default/quan-jeans-nu-ong-suong-phoi-tui-qj-12.jpg",
+      "description": "quan dai den got chan",
+      "categoryId": 2,
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Jeans.jpg/250px-Jeans.jpg",
+        "https://product.hstatic.net/200000690725/product/avt_web_1150_x_1475_px__3592e7567bb24ab4bf2f4e467b2e48d3.png"
+      ],
+      "id": 8
+    },
+    {
+      "name": "vayyyyyyy",
+      "price": 66666,
+      "image": "https://pos.nvncdn.com/4ef0bf-108661/ps/20250228_SRQJXikg8C.jpeg?v=1740761925",
+      "description": "vay dep nhat the gioi",
+      "categoryId": 4,
+      "images": [
+        "https://product.hstatic.net/200000041406/product/c_n_c_nh_ch_n_v_y_d_o_ph__ng_n_x_p_ly_v4467t_24bfb7cd3bb14e09b0e4d09ce541045e_grande.jpg",
+        "https://pos.nvncdn.com/04d215-119681/ps/Chan-vay-ngan-dang-Boha-skirt-thiet-ke-dang-A-tron-vien-ngoc-HIU-design-1.png?v=1766262019"
+      ],
+      "id": 9
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "password": "123456",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "User",
+      "email": "user@gmail.com",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "name": "a",
+      "email": "a@gmail.com",
+      "password": "123456",
+      "role": "user",
+      "id": 3
+    },
+    {
+      "name": "m",
+      "email": "n@gmail.com",
+      "password": "123456",
+      "role": "admin",
+      "id": 4
     }
   ]
 }

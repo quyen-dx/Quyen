@@ -25,18 +25,18 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
 
             @for (product of products; track product.id) {
-            <div class="group cursor-pointer" routerLink="/detail/1">
+            <div class="group cursor-pointer" >
                 <div class="w-[300px] h-[300px] overflow-hidden" >
-                    <img [src]="product.image" alt="" class="h-[full] object-cover">
+                    <img [src]="product.image" alt="" class="h-[full] object-cover" [routerLink]="['/detail/', product.id]"> 
                 </div>
                 <div>
-                    <h1 class="font-bold text-2xl">{{product.name}}</h1>
-                    <span class="text-[10px] md:text-xs text-yellow-400"><i class="fa-solid fa-star"></i><i
+                    <h1 class="font-bold text-2xl" [routerLink]="['/detail/', product.id]">{{product.name}}</h1>
+                    <span class="text-[10px] md:text-xs text-yellow-400" [routerLink]="['/detail/', product.id]"><i class="fa-solid fa-star"></i><i
                             class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                             class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>4/5</span>
-                    <p>{{product.price}}</p>
-                    <p>{{product.description}}</p>
-                    <p><span class="font-bold">Tag:</span> {{product.category?.name}}</p>
+                    <p [routerLink]="['/detail/', product.id]">{{product.price}}</p>
+                    <p [routerLink]="['/detail/', product.id]">{{product.description}}</p>
+                    <p [routerLink]="['/detail/', product.id]"><span class="font-bold">Tag:</span> {{product.category?.name}}</p>
                 </div>
             </div>
             }

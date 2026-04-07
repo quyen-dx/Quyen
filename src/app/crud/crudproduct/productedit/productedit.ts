@@ -1,7 +1,7 @@
 import { NgFor } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
@@ -9,6 +9,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { ICategory, IProduct } from '../../../interface/all';
+
 
 @Component({
   selector: 'app-productadd',
@@ -28,8 +29,21 @@ export class Productedit {
     price: new FormControl<number | null>(null, [Validators.required, Validators.min(50000)]),
     image: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
-    categoryId: new FormControl<number | null>(null, [Validators.required])
+    categoryId: new FormControl<number | null>(null, [Validators.required]),
+    images: new FormArray<FormControl<string | null>>([])
   })
+  get imagesArray() {
+    return this.productform.get('images') as FormArray
+  }
+  addImage() {
+    this.imagesArray.push(new FormControl(''))
+  }
+  removeImage(i: number) {
+    this.imagesArray.removeAt(i)
+  }
+  getControl(i: number): FormControl {
+    return this.imagesArray.at(i) as FormControl
+  }
   id = this.route.snapshot.params['id']
   ngOnInit() {
     this.http.get<ICategory[]>("http://localhost:3000/categories").subscribe({
@@ -44,7 +58,13 @@ export class Productedit {
           this.productform.controls.price.setValue(data.price),
           this.productform.controls.image.setValue(data.image),
           this.productform.controls.description.setValue(data.description),
-          this.productform.controls.categoryId.setValue(data.categoryId)
+          this.productform.controls.categoryId.setValue(data.categoryId),
+          this.imagesArray.clear()
+        if (data.images && data.images.length) {
+          data.images.forEach(img => {
+            this.imagesArray.push(new FormControl(img))
+          })
+        }
       },
       error: (err) => {
         console.log(err);
@@ -53,8 +73,7 @@ export class Productedit {
     })
   };
 
-
-  add() {
+  edit() {
     if (!this.productform.valid) {
       this.productform.markAllAsTouched()
       this.message.error("thong tin can nhap day du")
@@ -66,6 +85,7 @@ export class Productedit {
       next: () => {
         this.message.success("sua thanh cong")
         this.router.navigate(["admin/product"])
+        console.log("data gui", data)
       },
       error: (err) => {
         console.log(err)

@@ -4,6 +4,7 @@
             <th>Stt</th>
             <th>name</th>
             <th>image</th>
+            <th>images</th>
             <th>price</th>
             <th>description</th>
             <th>category</th>
@@ -16,6 +17,11 @@
             <td>{{index + 1}}</td>
             <td>{{product.name}}</td>
             <td><img [src]="product.image" alt="" width = '120'></td>
+            <td>
+                <div class="flex gap 1">
+                    <img *ngFor="let img of product.images" [src]="img" width="50" />
+                </div>
+            </td>
             <td>{{product.price}}</td>
             <td>{{product.description}}</td>
             <td>{{product.category?.name}}</td>

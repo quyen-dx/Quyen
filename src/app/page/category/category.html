@@ -167,12 +167,11 @@
                 class="flex items-center gap-2 border border-gray-200 rounded-full px-4 py-2 text-sm">
                 <i class="fa-solid fa-sliders text-xs"></i> Filters
             </button>
-            <select
-                class="font-semibold text-black text-xs outline-none border border-gray-200 rounded-full px-3 py-2 bg-white">
-                <option>Most Popular</option>
-                <option>Newest</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
+            <select class="font-semibold text-black text-xs outline-none border-none bg-transparent cursor-pointer"
+                (change)="onCategoryChange($event)">
+                <option value="">tất cả</option>
+                <option *ngFor="let c of categories" [value]="c.id" [selected]="c.id === category?.id">{{c.name}}
+                </option>
             </select>
         </div>
 
@@ -181,158 +180,35 @@
             <div class="flex items-center gap-2 text-xs text-gray-500">
                 <span>Showing 1-10 of 100 Products</span>
                 <span>Sort by:</span>
-                <select class="font-semibold text-black text-xs outline-none border-none bg-transparent cursor-pointer">
-                    <option>Most Popular</option>
-                    <option>Newest</option>
-                    <option>Price: Low to High</option>
-                    <option>Price: High to Low</option>
+
+                <select class="font-semibold text-black text-xs outline-none border-none bg-transparent cursor-pointer"
+                    (change)="onCategoryChange($event)">
+                    <option value="">tất cả</option>
+                    <option *ngFor="let c of categories" [value]="c.id" [selected]="c.id === category?.id">{{c.name}}
+                    </option>
                 </select>
             </div>
         </div>
 
         <div class="md:hidden mb-3">
-            <h1 class="text-xl font-[900] uppercase tracking-tight">Casual</h1>
-            <p class="text-xs text-gray-400">Showing 1-10 of 100 Products</p>
+            <h1 class="text-xl font-[900] uppercase tracking-tight">{{category?.name}}</h1>
+            <p class="text-xs text-gray-400">Showing {{products.length}} Prducts</p>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 mb-8">
-            <div class="group cursor-pointer">
+            <div class="group cursor-pointer" *ngFor="let p of products" [routerLink]="['/detail',p.id]">
                 <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/imgcategory/Frame 8.png"
+                    <img [src]="p.image"
                         class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                 </div>
-                <h3 class="font-bold text-xs md:text-base mb-1">Gradient Graphic T-shirt</h3>
+                <h3 class="font-bold text-xs md:text-base mb-1">{{p.name}}</h3>
                 <div class="flex items-center gap-1 mb-1">
                     <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
                             class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                             class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div><span
                         class="text-[10px] text-gray-400">3.5/5</span>
                 </div>
-                <span class="font-bold text-sm md:text-base">$145</span>
-            </div>
-            <div class="group cursor-pointer">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/imgcategory/Frame 9.png"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-xs md:text-base mb-1">Polo with Tipping Details</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><span
-                        class="text-[10px] text-gray-400">4.5/5</span>
-                </div>
-                <span class="font-bold text-sm md:text-base">$180</span>
-            </div>
-            <div class="group cursor-pointer">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/imgcategory/Frame 7.png"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-xs md:text-base mb-1">Black Striped T-shirt</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span
-                        class="text-[10px] text-gray-400">5.0/5</span>
-                </div>
-                <div class="flex items-center gap-1 flex-wrap"><span
-                        class="font-bold text-sm md:text-base">$120</span><span
-                        class="line-through-price text-xs">$160</span><span
-                        class="badge-sale text-white text-[9px] font-bold px-1 py-0.5 rounded">-30%</span></div>
-            </div>
-            <div class="group cursor-pointer">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/imgcategory/Frame 2.png"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-xs md:text-base mb-1">Skinny Fit Jeans</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div><span
-                        class="text-[10px] text-gray-400">3.5/5</span>
-                </div>
-                <div class="flex items-center gap-1 flex-wrap"><span
-                        class="font-bold text-sm md:text-base">$240</span><span
-                        class="line-through-price text-xs">$260</span><span
-                        class="badge-sale text-white text-[9px] font-bold px-1 py-0.5 rounded">-20%</span></div>
-            </div>
-            <div class="group cursor-pointer">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/imgcategory/Frame 3.png"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-xs md:text-base mb-1">Checkered Shirt</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><span
-                        class="text-[10px] text-gray-400">4.5/5</span>
-                </div>
-                <span class="font-bold text-sm md:text-base">$180</span>
-            </div>
-            <div class="group cursor-pointer">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/imgcategory/Frame 4.png"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-xs md:text-base mb-1">Sleeve Striped T-shirt</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><span
-                        class="text-[10px] text-gray-400">4.5/5</span>
-                </div>
-                <div class="flex items-center gap-1 flex-wrap"><span
-                        class="font-bold text-sm md:text-base">$130</span><span
-                        class="line-through-price text-xs">$160</span><span
-                        class="badge-sale text-white text-[9px] font-bold px-1 py-0.5 rounded">-10%</span></div>
-            </div>
-            <div class="group cursor-pointer">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/imgcategory/Frame 1.png"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-xs md:text-base mb-1">Vertical Striped Shirt</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><span
-                        class="text-[10px] text-gray-400">5.0/5</span>
-                </div>
-                <div class="flex items-center gap-1 flex-wrap"><span
-                        class="font-bold text-sm md:text-base">$212</span><span
-                        class="line-through-price text-xs">$232</span><span
-                        class="badge-sale text-white text-[9px] font-bold px-1 py-0.5 rounded">-20%</span></div>
-            </div>
-            <div class="group cursor-pointer">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/imgcategory/Frame 5.png"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-xs md:text-base mb-1">Courage Graphic T-shirt</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div><span
-                        class="text-[10px] text-gray-400">4.0/5</span>
-                </div>
-                <span class="font-bold text-sm md:text-base">$145</span>
-            </div>
-            <div class="group cursor-pointer hidden md:block">
-                <div class="bg-[#F0EEED] rounded-xl md:rounded-2xl overflow-hidden aspect-square mb-2 md:mb-3">
-                    <img src="assets/imgcategory/Frame 6.png"
-                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                </div>
-                <h3 class="font-bold text-xs md:text-base mb-1">Loose Fit Bermuda Shorts</h3>
-                <div class="flex items-center gap-1 mb-1">
-                    <div class="flex text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i
-                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                            class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></div><span
-                        class="text-[10px] text-gray-400">3.0/5</span>
-                </div>
-                <span class="font-bold text-sm md:text-base">$80</span>
+                <span class="font-bold text-sm md:text-base">{{p.price}} $</span>
             </div>
         </div>
 
